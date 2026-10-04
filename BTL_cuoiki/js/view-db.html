@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learnova DB Viewer</title>
+
+  <!--
+    Đặt file này cùng thư mục với data.js
+    rồi chạy bằng Live Server trong VS Code.
+  -->
+  <script src="./data.js"></script>
+
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --text: #172033;
+      --muted: #667085;
+      --border: #e5eaf2;
+      --primary: #2f6fd6;
+      --primary-soft: #eaf2ff;
+      --danger: #d84f4f;
+      --success: #2d9a69;
+      --shadow: 0 8px 24px rgba(23, 32, 51, 0.07);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    button, input, select { font: inherit; }
+
+    .app {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 18px 14px;
+      overflow: auto;
+    }
+
+    .brand {
+      padding: 4px 10px 18px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .dataset-list {
+      display: grid;
+      gap: 5px;
+    }
+
+    .dataset-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 0;
+      background: transparent;
+      color: #344054;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .dataset-btn:hover {
+      background: #f2f4f7;
+    }
+
+    .dataset-btn.active {
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .count {
+      min-width: 30px;
+      text-align: center;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #eef2f6;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .dataset-btn.active .count {
+      background: #d8e8ff;
+      color: var(--primary);
+    }
+
+    .main {
+      min-width: 0;
+      padding: 22px;
+    }
+
+    .topbar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .topbar h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .topbar p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: #344054;
+      padding: 9px 12px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background: var(--surface-2);
+    }
+
+    .btn.primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .btn.danger {
+      color: var(--danger);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .stat-card .label {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .stat-card .value {
+      margin-top: 4px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .search {
+      flex: 1;
+      min-width: 240px;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      padding: 0 12px;
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(47, 111, 214, 0.10);
+    }
+
+    .table-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .table-scroll {
+      overflow: auto;
+      max-height: calc(100vh - 260px);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+    }
+
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid #f0f2f5;
+      text-align: left;
+      vertical-align: top;
+      font-size: 13px;
+      max-width: 320px;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: #f8fafc;
+      color: #475467;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    td {
+      color: #344054;
+      word-break: break-word;
+    }
+
+    tbody tr:hover td {
+      background: #fbfcfe;
+    }
+
+    .cell-json {
+      color: #51617a;
+      font-family: Consolas, monospace;
+      font-size: 12px;
+    }
+
+    .empty {
+      padding: 50px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .status {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #eef7f3;
+      color: var(--success);
+      font-size: 13px;
+      display: none;
+    }
+
+    .status.show { display: block; }
+
+    dialog {
+      width: min(900px, calc(100vw - 40px));
+      max-height: 80vh;
+      border: 0;
+      border-radius: 14px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.20);
+      padding: 0;
+    }
+
+    dialog::backdrop {
+      background: rgba(20, 28, 45, .35);
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-head h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .modal-body {
+      padding: 16px 18px 20px;
+      overflow: auto;
+    }
+
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #0f172a;
+      color: #dce7f7;
+      padding: 16px;
+      border-radius: 10px;
+      font: 12px/1.6 Consolas, monospace;
+    }
+
+    @media (max-width: 1000px) {
+      .app { grid-template-columns: 220px minmax(0, 1fr); }
+      .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; }
+      .dataset-list { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>Learnova DB Viewer</h1>
+        <p>Xem trực tiếp dữ liệu từ <b>data.js</b> / localStorage.</p>
+      </div>
+
+      <div id="datasetList" class="dataset-list"></div>
+    </aside>
+
+    <main class="main">
+      <section class="topbar">
+        <div>
+          <h2 id="title">Database</h2>
+          <p id="subtitle">Chọn một dataset ở sidebar.</p>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="reloadBtn">Nạp lại</button>
+          <button class="btn" id="rawBtn">Xem JSON</button>
+          <button class="btn primary" id="downloadBtn">Xuất JSON</button>
+          <button class="btn danger" id="resetBtn">Reset dữ liệu</button>
+        </div>
+      </section>
+
+      <section id="stats" class="stats"></section>
+
+      <div class="toolbar">
+        <input id="searchInput" class="search" type="search"
+               placeholder="Tìm trong dataset hiện tại..." />
+        <span id="resultInfo" style="color:#667085;font-size:13px"></span>
+      </div>
+
+      <section class="table-card">
+        <div id="tableContainer" class="table-scroll"></div>
+      </section>
+
+      <div id="status" class="status"></div>
+    </main>
+  </div>
+
+  <dialog id="jsonDialog">
+    <div class="modal-head">
+      <h3 id="modalTitle">JSON</h3>
+      <button class="btn" onclick="document.getElementById('jsonDialog').close()">Đóng</button>
+    </div>
+    <div class="modal-body">
+      <pre id="jsonView"></pre>
+    </div>
+  </dialog>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const $ = (id) => document.getElementById(id);
+
+      const PREFERRED_ORDER = [
+        "meta",
+        "adminContact",
+        "teachers",
+        "classes",
+        "students",
+        "parents",
+        "topics",
+        "difficulties",
+        "questionTypes",
+        "tags",
+        "referenceDocs",
+        "questions",
+        "assignments",
+        "submissions",
+        "notifications",
+        "comments",
+        "reports"
+      ];
+
+      const LABELS = {
+        meta: "Meta",
+        adminContact: "Admin Contact",
+        teachers: "Giáo viên",
+        classes: "Lớp học",
+        students: "Học sinh",
+        parents: "Phụ huynh",
+        topics: "Chủ đề",
+        difficulties: "Độ khó",
+        questionTypes: "Loại câu hỏi",
+        tags: "Tags",
+        referenceDocs: "Tài liệu",
+        questions: "Câu hỏi",
+        assignments: "Bài tập & kiểm tra",
+        submissions: "Bài làm",
+        notifications: "Thông báo",
+        comments: "Nhận xét",
+        reports: "Báo cáo"
+      };
+
+      let currentKey = "students";
+      let currentRows = [];
+      let filteredRows = [];
+
+      function getDB() {
+        if (window.DB) return window.DB;
+
+        try {
+          const raw = localStorage.getItem("learnova_db_v1");
+          if (raw) return JSON.parse(raw);
+        } catch (e) {}
+
+        return null;
+      }
+
+      function showStatus(message) {
+        $("status").textContent = message;
+        $("status").classList.add("show");
+        setTimeout(() => $("status").classList.remove("show"), 2500);
+      }
+
+      function displayValue(value) {
+        if (value === null || value === undefined) return "";
+        if (typeof value === "object") {
+          return JSON.stringify(value, null, 0);
+        }
+        return String(value);
+      }
+
+      function escapeHtml(text) {
+        return String(text)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function recordCount(value) {
+        if (Array.isArray(value)) return value.length;
+        if (value && typeof value === "object") return Object.keys(value).length;
+        return 1;
+      }
+
+      function normalizeRows(value) {
+        if (Array.isArray(value)) return value;
+
+        if (value && typeof value === "object") {
+          return Object.entries(value).map(([key, val]) => ({
+            key,
+            value: val
+          }));
+        }
+
+        return [{ value }];
+      }
+
+      function buildSidebar() {
+        const db = getDB();
+        const root = $("datasetList");
+        root.innerHTML = "";
+
+        if (!db) {
+          root.innerHTML = '<div class="empty">Không tìm thấy DB.</div>';
+          return;
+        }
+
+        const keys = [
+          ...PREFERRED_ORDER.filter(k => k in db),
+          ...Object.keys(db).filter(k => !PREFERRED_ORDER.includes(k))
+        ];
+
+        keys.forEach(key => {
+          const btn = document.createElement("button");
+          btn.className = "dataset-btn" + (key === currentKey ? " active" : "");
+          btn.dataset.key = key;
+
+          const label = document.createElement("span");
+          label.textContent = LABELS[key] || key;
+
+          const count = document.createElement("span");
+          count.className = "count";
+          count.textContent = recordCount(db[key]);
+
+          btn.append(label, count);
+
+          btn.addEventListener("click", () => {
+            currentKey = key;
+            document.querySelectorAll(".dataset-btn")
+              .forEach(x => x.classList.toggle("active", x.dataset.key === key));
+            $("searchInput").value = "";
+            renderDataset();
+          });
+
+          root.appendChild(btn);
+        });
+      }
+
+      function collectColumns(rows) {
+        const set = new Set();
+
+        rows.slice(0, 100).forEach(row => {
+          if (row && typeof row === "object" && !Array.isArray(row)) {
+            Object.keys(row).forEach(k => set.add(k));
+          } else {
+            set.add("value");
+          }
+        });
+
+        const cols = [...set];
+
+        const preferred = [
+          "id", "name", "fullName", "title", "role", "classId",
+          "studentId", "assignmentId", "topicId", "type", "status"
+        ];
+
+        return [
+          ...preferred.filter(x => cols.includes(x)),
+          ...cols.filter(x => !preferred.includes(x))
+        ];
+      }
+
+      function renderDataset() {
+        const db = getDB();
+
+        if (!db || !(currentKey in db)) {
+          $("tableContainer").innerHTML =
+            '<div class="empty">Không tìm thấy dữ liệu.</div>';
+          return;
+        }
+
+        currentRows = normalizeRows(db[currentKey]);
+        filteredRows = currentRows.slice();
+
+        $("title").textContent = LABELS[currentKey] || currentKey;
+        $("subtitle").textContent =
+          `${currentRows.length.toLocaleString("vi-VN")} bản ghi`;
+
+        renderStats();
+        renderTable();
+      }
+
+      function renderStats() {
+        const db = getDB();
+        const cards = [
+          ["Lớp học", db.classes?.length ?? 0],
+          ["Học sinh", db.students?.length ?? 0],
+          ["Câu hỏi", db.questions?.length ?? 0],
+          ["Bài làm", db.submissions?.length ?? 0]
+        ];
+
+        $("stats").innerHTML = cards.map(([label, value]) => `
+          <article class="stat-card">
+            <div class="label">${escapeHtml(label)}</div>
+            <div class="value">${Number(value).toLocaleString("vi-VN")}</div>
+          </article>
+        `).join("");
+      }
+
+      function renderTable() {
+        const container = $("tableContainer");
+
+        if (!filteredRows.length) {
+          container.innerHTML =
+            '<div class="empty">Không có bản ghi phù hợp.</div>';
+          $("resultInfo").textContent = "0 bản ghi";
+          return;
+        }
+
+        const columns = collectColumns(filteredRows);
+        $("resultInfo").textContent =
+          `${filteredRows.length.toLocaleString("vi-VN")} / ${currentRows.length.toLocaleString("vi-VN")} bản ghi`;
+
+        let html = "<table><thead><tr>";
+        columns.forEach(col => {
+          html += `<th>${escapeHtml(col)}</th>`;
+        });
+        html += "<th>Chi tiết</th></tr></thead><tbody>";
+
+        filteredRows.forEach((row, index) => {
+          const obj = row && typeof row === "object" ? row : { value: row };
+          html += "<tr>";
+
+          columns.forEach(col => {
+            const val = obj[col];
+            const text = displayValue(val);
+            const cls = val && typeof val === "object" ? ' class="cell-json"' : "";
+            html += `<td${cls}>${escapeHtml(text)}</td>`;
+          });
+
+          html += `<td>
+              <button class="btn" data-index="${index}" data-detail="1">
+                Xem
+              </button>
+            </td>`;
+
+          html += "</tr>";
+        });
+
+        html += "</tbody></table>";
+        container.innerHTML = html;
+
+        container.querySelectorAll("[data-detail]").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const index = Number(btn.dataset.index);
+            openJSON(filteredRows[index], `${LABELS[currentKey] || currentKey} – bản ghi ${index + 1}`);
+          });
+        });
+      }
+
+      function filterRows() {
+        const q = $("searchInput").value.trim().toLowerCase();
+
+        if (!q) {
+          filteredRows = currentRows.slice();
+        } else {
+          filteredRows = currentRows.filter(row => {
+            try {
+              return JSON.stringify(row).toLowerCase().includes(q);
+            } catch {
+              return String(row).toLowerCase().includes(q);
+            }
+          });
+        }
+
+        renderTable();
+      }
+
+      function openJSON(value, title) {
+        $("modalTitle").textContent = title || "JSON";
+        $("jsonView").textContent = JSON.stringify(value, null, 2);
+        $("jsonDialog").showModal();
+      }
+
+      function downloadJSON() {
+        const db = getDB();
+        const blob = new Blob(
+          [JSON.stringify(db, null, 2)],
+          { type: "application/json;charset=utf-8" }
+        );
+
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "learnova-database.json";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      $("searchInput").addEventListener("input", filterRows);
+
+      $("rawBtn").addEventListener("click", () => {
+        openJSON(getDB(), "Toàn bộ Learnova DB");
+      });
+
+      $("downloadBtn").addEventListener("click", downloadJSON);
+
+      $("reloadBtn").addEventListener("click", () => {
+        buildSidebar();
+        renderDataset();
+        showStatus("Đã nạp lại dữ liệu đang có.");
+      });
+
+      $("resetBtn").addEventListener("click", () => {
+        if (!window.Store || typeof Store.reset !== "function") {
+          alert("Không tìm thấy Store.reset(). Hãy chắc chắn data.js đã được nạp.");
+          return;
+        }
+
+        if (!confirm("Reset DB về dữ liệu gốc từ data.js? Các thay đổi trong localStorage sẽ mất.")) {
+          return;
+        }
+
+        Store.reset();
+        buildSidebar();
+        renderDataset();
+        showStatus("Đã reset dữ liệu về dữ liệu gốc.");
+      });
+
+      // Start
+      if (!getDB()) {
+        $("tableContainer").innerHTML = `
+          <div class="empty">
+            <b>Không tìm thấy DB.</b><br><br>
+            Hãy đặt <code>view-db.html</code> cùng thư mục với
+            <code>data.js</code> và chạy bằng Live Server.
+          </div>
+        `;
+        $("title").textContent = "Không tìm thấy database";
+        $("subtitle").textContent = "Kiểm tra lại đường dẫn ./data.js";
+      } else {
+        buildSidebar();
+        renderDataset();
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+/* ========== Learnova - Footer ========== */
+/* Đặt footer BÊN TRONG .main (định nghĩa trong topbar.css):
+   .main đã có margin-left = độ rộng sidebar nên footer không đè lên sidebar,
+   và vì .main là flex column nên footer luôn nằm sát đáy trang. */
+
+.footer {
+  --footer-accent: #4a5b8c;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin-top: auto;
+  padding: 20px 24px;
+  background: #fff;
+  border-top: 1px solid #eef0f4;
+  font-size: 12px;
+  color: var(--muted, #6b7280);
+}
+
+.footer a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .15s ease;
+}
+
+.footer a:hover { color: var(--text, #1f2937); }
+
+.footer .icon {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Bản quyền ---------- */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-brand strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.footer-brand small {
+  font-size: 12px;
+  color: var(--footer-accent);
+}
+
+/* ---------- Liên kết giữa ---------- */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+/* ---------- Liên hệ + hỗ trợ ---------- */
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer-admin strong {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.footer-admin a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--footer-accent);
+}
+
+.footer-help {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-help-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.footer-help-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  color: var(--footer-accent);
+}
+
+.footer-help-text small { font-size: 12px; }
+
+/* ---------- Truy cập bàn phím ---------- */
+.footer a:focus-visible {
+  outline: 2px solid var(--blue, #1a73e8);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Màn hình hẹp ---------- */
+@media (max-width: 960px) {
+  .footer-links { order: 3; width: 100%; }
+}
+
+@media (max-width: 720px) {
+  .footer { padding: 16px; }
+  .footer-contact { flex-wrap: wrap; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

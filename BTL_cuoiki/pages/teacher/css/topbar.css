@@ -1,0 +1,206 @@
+/* ========== Learnova - Topbar ========== */
+/* Dùng chung biến màu với sidebar.css (có giá trị dự phòng nếu chưa nạp) */
+
+/* ---------- Vùng bên phải sidebar ----------
+   Sidebar là position: fixed, rộng var(--sb-width) = 244px.
+   .main chừa đúng khoảng đó bên trái nên topbar không bao giờ đè lên sidebar. */
+.main {
+  margin-left: var(--sb-width, 244px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.content {
+  flex: 1;
+  background: #f3f3f7;
+}
+
+/* ---------- Topbar ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 100px;
+  padding: 0 24px;
+  background: #fff;
+  border-bottom: 1px solid #eef0f4;
+}
+
+.topbar .icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Breadcrumb + tiêu đề ---------- */
+.topbar-title { min-width: 0; }
+
+.breadcrumb ol {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12px;
+  color: var(--muted, #6b7280);
+}
+
+.breadcrumb li { display: flex; align-items: center; }
+
+.breadcrumb li + li::before {
+  content: "›";
+  margin: 0 5px;
+  color: #9ca3af;
+}
+
+.breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover { color: var(--text, #1f2937); }
+.breadcrumb .icon { width: 13px; height: 13px; }
+
+.topbar h1 {
+  margin: 2px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -.01em;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Bên phải ---------- */
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: none;
+}
+
+.topbar-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--line, #e5e7eb);
+}
+
+/* Chuông thông báo */
+.bell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #1f2937;
+  cursor: pointer;
+  transition: background-color .15s ease;
+}
+
+.bell:hover { background: var(--hover, #f3f4f6); }
+
+.bell-dot {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  background: var(--blue, #1a73e8);
+}
+
+/* Tài khoản */
+.account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 6px 4px 4px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color .15s ease;
+}
+
+.account:hover { background: var(--hover, #f3f4f6); }
+
+.account-avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--blue-soft, #dce9fd);
+  color: var(--blue, #1a73e8);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.account-info strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+}
+
+.account-info small {
+  font-size: 11px;
+  color: var(--muted, #6b7280);
+}
+
+.account .chevron {
+  width: 18px;
+  height: 18px;
+  margin-left: 2px;
+  color: #4b5563;
+}
+
+/* ---------- Truy cập bàn phím ---------- */
+.bell:focus-visible,
+.account:focus-visible,
+.breadcrumb a:focus-visible {
+  outline: 2px solid var(--blue, #1a73e8);
+  outline-offset: 2px;
+}
+
+/* ---------- Màn hình hẹp ---------- */
+@media (max-width: 720px) {
+  .topbar { padding: 0 16px; }
+  .account-info { display: none; }
+  .topbar h1 { font-size: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

@@ -1,13 +1,9 @@
-/* Learnova – Trang Tổng quan (giáo viên). Cần nạp data.js TRƯỚC file này. */
-(function () {
+/* Learnova – Trang Tổng quan (giáo viên). Chờ data-loader.js nạp CSV trước khi hiển thị. */
+window.pageReady = Promise.all([window.dataReady, window.layoutReady]).then(function () {
   "use strict";
   var DAY = 864e5, now = Date.now();
   var $ = function (id) { return document.getElementById(id); };
 
-  if (!window.DB || !window.Store) {
-    $("stats").innerHTML = '<p class="card empty">Không nạp được <code>data.js</code>. Hãy kiểm tra lại đường dẫn thẻ &lt;script&gt;.</p>';
-    return;
-  }
 
   var P = {
     users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
@@ -121,4 +117,4 @@
   var dot = document.querySelector(".bell-dot"), bell = document.querySelector(".bell");
   if (dot) dot.hidden = !unread;
   if (bell) bell.setAttribute("aria-label", unread ? "Thông báo (" + unread + " chưa đọc)" : "Thông báo");
-})();
+}).catch(window.reportDataError);

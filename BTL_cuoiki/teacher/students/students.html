@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learnova - Danh sách học sinh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&subset=vietnamese&display=swap" rel="stylesheet">
+
+  <!-- Thứ tự quan trọng: sidebar -> topbar -> footer -->
+  
+  <link rel="stylesheet" href="../../style.css">
+  
+  <link rel="stylesheet" href="../../partial/sidebar/sidebar.css">
+  <link rel="stylesheet" href="../../partial/topbar/topbar.css">
+  <link rel="stylesheet" href="../../partial/footer/footer.css">
+  
+  <link rel="stylesheet" href="students.css">
+</head>
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+<div id="sidebar-slot"></div>
+
+<!-- ============ VÙNG BÊN PHẢI SIDEBAR ============ -->
+<div class="main">
+
+  <!-- ================= TOPBAR ================= -->
+  <div id="topbar-slot"></div>
+
+  <!-- ============ NỘI DUNG TRANG ============ -->
+  <main class="content">
+    <div class="dash">
+      <div class="class-row">
+        <div class="fld">
+          <label for="fClass">Lớp</label>
+          <div class="filters"><select id="fClass" aria-label="Chọn lớp"></select></div>
+        </div>
+        <button type="button" class="btn" id="btnAdd"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg> Thêm học sinh</button>
+      </div>
+
+      <div class="toolbar">
+        <label class="search"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input id="q" type="search" placeholder="Tìm kiếm theo tên, mã học sinh hoặc email..." aria-label="Tìm kiếm học sinh"></label>
+        <div class="filters">
+          <select id="fStatus" aria-label="Lọc theo trạng thái">
+            <option value="">Tất cả trạng thái</option>
+            <option value="active">Hoạt động</option>
+            <option value="locked">Tạm khóa</option>
+          </select>
+        </div>
+      </div>
+
+      <section class="stats" id="stats" aria-label="Số liệu học sinh" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))"></section>
+
+      <section class="card" aria-labelledby="t-list">
+        <header class="card-head"><h2 id="t-list">Danh sách học sinh</h2></header>
+        <div id="view"></div>
+        <div class="foot"><span id="info"></span><div class="pager" id="pager"></div></div>
+      </section>
+    </div>
+
+    <div class="menu" id="menu" role="menu" hidden>
+      <button type="button" role="menuitem" data-act="edit">Chỉnh sửa</button>
+      <button type="button" role="menuitem" id="mLock" data-act="lock">Khóa tài khoản</button>
+      <button type="button" role="menuitem" class="danger" data-act="delete">Xóa học sinh</button>
+    </div>
+
+    <dialog id="dlg" aria-labelledby="dlgTitle">
+      <form id="form" class="dlg-body" novalidate>
+        <h3 id="dlgTitle">Thêm học sinh</h3>
+        <label class="fld">Họ và tên *<input name="sname" autocomplete="off" placeholder="VD: Nguyễn Văn An"><span class="err" data-err="sname" aria-live="polite"></span></label>
+        <div class="cols">
+          <label class="fld">Giới tính<select name="gender"><option value="male">Nam</option><option value="female">Nữ</option></select></label>
+          <label class="fld">Ngày sinh<input type="date" name="dob"><span class="err" data-err="dob" aria-live="polite"></span></label>
+        </div>
+        <label class="fld">Email *<input type="email" name="email" autocomplete="off" placeholder="ten@learnova.vn"><span class="err" data-err="email" aria-live="polite"></span></label>
+        <label class="fld">Lớp<select name="cls"></select></label>
+        <div class="dlg-actions">
+          <button type="button" class="btn ghost" id="cancel">Hủy</button>
+          <button type="submit" class="btn">Lưu</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <div id="footer-slot"></div>
+
+</div>
+
+<script>
+  window.PAGE = {"title": "Danh sách học sinh", "breadcrumb": ["Lớp học", "Danh sách học sinh"]};
+</script>
+<script src="../../assets/data-loader.js"></script>
+<script src="../connect.js"></script>
+<script src="students.js"></script>
+</body>
+</html>

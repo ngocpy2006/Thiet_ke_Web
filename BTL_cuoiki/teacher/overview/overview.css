@@ -1,0 +1,54 @@
+/* Tổng quan: biểu đồ, việc cần xử lý và hoạt động học sinh. */
+
+.greet { margin: 0; font-size: 14px; color: var(--muted, #6b7280); }
+.row { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: 20px; }
+
+/* Biểu đồ kết quả */
+.plot { position: relative; height: 190px; margin: 28px 0 0 46px; }
+.gl { position: absolute; left: 0; right: 0; height: 0; border-top: 1px solid #eef0f4; }
+.gl span { position: absolute; right: 100%; padding-right: 12px; transform: translateY(-50%); font-size: 12px; color: var(--muted, #6b7280); }
+.groups { position: absolute; inset: 0; display: flex; }
+.g { position: relative; flex: 1; display: flex; align-items: flex-end; justify-content: center; padding: 0 12px; }
+.g + .g { border-left: 1px solid #eef0f4; }
+.g em { position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-style: normal; color: #9ca3af; }
+.b { position: relative; width: 100%; max-width: 64px; height: var(--h); background: #93c5fd; border-radius: 8px 8px 0 0; animation: grow .6s ease both; }
+.b.now { background: #3b82f6; }
+.b span { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 6px; font-size: 13px; font-weight: 500; color: #111827; white-space: nowrap; }
+@keyframes grow { from { height: 0; } }
+.xl { display: flex; margin: 10px 0 0 46px; }
+.xl div { flex: 1; text-align: center; display: grid; gap: 2px; font-size: 13px; }
+.xl small { font-size: 12px; }
+
+/* Việc cần xử lý */
+.todo { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.todo li { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px; background: #f6f8fc; }
+.dot { flex: none; width: 10px; height: 10px; border-radius: 50%; }
+.dot.bad { background: #ef4444; }
+.dot.warn { background: #f59e0b; }
+.dot.info { background: #3b82f6; }
+.todo-main { flex: 1; min-width: 0; display: grid; gap: 2px; font-size: 14px; }
+.todo-main small, .act-main small { font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pill { flex: none; min-width: 34px; padding: 4px 10px; border-radius: 999px; text-align: center; font-size: 13px; font-weight: 600; }
+.pill.bad { background: #ffe5e5; color: #ef4444; }
+.pill.warn { background: #fff0d6; color: #d97706; }
+.pill.info { background: #dbe9ff; color: #2563eb; }
+
+/* Kết quả các bài gần đây */
+.rate { display: flex; align-items: center; gap: 12px; }
+.rate i { display: block; width: 72px; height: 8px; border-radius: 99px; background: #e8edf5; overflow: hidden; }
+.rate i s { display: block; height: 100%; border-radius: 99px; background: #60a5fa; }
+.rate i s.hi { background: #22c55e; }
+
+/* Hoạt động học sinh */
+.acts { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.acts li { display: flex; align-items: center; gap: 12px; }
+.av { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; font-weight: 600; font-size: 16px; }
+.av.t0 { background: #dbeafe; color: #2563eb; }
+.av.t1 { background: #ede9fe; color: #7c3aed; }
+.av.t2 { background: #dcfce7; color: #16a34a; }
+.av.t3 { background: #ffedd5; color: #ea580c; }
+.act-main { flex: 1; min-width: 0; display: grid; gap: 2px; font-size: 14px; }
+.acts time { flex: none; font-size: 12.5px; color: var(--muted, #6b7280); }
+.empty { padding: 18px; text-align: center; color: var(--muted, #6b7280); font-size: 14px; }
+@media (max-width: 1180px) { .row { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .b { animation: none; } }

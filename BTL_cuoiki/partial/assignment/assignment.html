@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learnova - Danh sách bài</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&subset=vietnamese&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../sidebar/sidebar.css">
+  <link rel="stylesheet" href="../topbar/topbar.css">
+  <link rel="stylesheet" href="../footer/footer.css">
+  <link rel="stylesheet" href="assignment.css">
+</head>
+<body>
+
+  <div id="sidebar-slot"></div>
+
+  <div class="main">
+    <div id="topbar-slot"></div>
+    <main class="content">
+      <div class="page-shell">
+
+        <a id="assignment-create" class="btn btn-primary" href="../../teacher/create-assignment/create-assignment.html">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            Tạo bài mới
+          </a>
+
+        <section class="card assignments-card" aria-label="Danh sách bài tập và bài kiểm tra">
+          <div class="tabs" role="tablist" aria-label="Trạng thái bài">
+            <button id="tab-all" class="tab is-active" type="button" role="tab" data-phase="" aria-controls="assignments-panel" aria-selected="true">Tất cả <span class="tab-count">0</span></button>
+            <button id="tab-closed" class="tab" type="button" role="tab" data-phase="closed" aria-controls="assignments-panel" aria-selected="false" tabindex="-1">Đã giao <span class="tab-count">0</span></button>
+            <button id="tab-ongoing" class="tab" type="button" role="tab" data-phase="ongoing" aria-controls="assignments-panel" aria-selected="false" tabindex="-1">Đang giao <span class="tab-count">0</span></button>
+            <button id="tab-upcoming" class="tab" type="button" role="tab" data-phase="upcoming" aria-controls="assignments-panel" aria-selected="false" tabindex="-1">Sắp giao <span class="tab-count">0</span></button>
+            <button id="tab-draft" class="tab" type="button" role="tab" data-phase="draft" aria-controls="assignments-panel" aria-selected="false" tabindex="-1">Bản nháp <span class="tab-count">0</span></button>
+          </div>
+
+          <div id="assignments-panel" role="tabpanel" aria-labelledby="tab-all">
+          <div class="table-toolbar">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input id="assignment-search" class="input" type="search" placeholder="Tìm theo tên bài..." aria-label="Tìm kiếm bài">
+            </div>
+            <select id="assignment-class" class="filter-select" aria-label="Lọc theo lớp"><option value="">Lớp: Tất cả</option></select>
+            <select id="assignment-type" class="filter-select" aria-label="Lọc theo loại bài"><option value="">Loại bài: Tất cả</option><option value="bai_tap">Bài tập</option><option value="kiem_tra">Bài kiểm tra</option></select>
+            <select id="assignment-sort" class="filter-select" aria-label="Sắp xếp"><option value="recent">Sắp xếp: Mới nhất</option><option value="old">Cũ nhất</option><option value="deadline">Hạn nộp gần nhất</option></select>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>Tên bài</th><th>Lớp</th><th>Loại</th><th>Hạn nộp</th><th>Tiến độ</th><th>Điểm TB</th><th>Trạng thái</th><th aria-label="Thao tác"></th></tr>
+              </thead>
+              <tbody id="assignment-rows"></tbody>
+            </table>
+          </div>
+
+          <div class="table-footer">
+            <span id="assignment-summary" aria-live="polite"></span>
+            <nav id="assignment-pages" class="pagination" aria-label="Phân trang"></nav>
+          </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div id="footer-slot"></div>
+  </div>
+  <dialog id="assignment-detail" class="assignment-detail" aria-labelledby="assignment-detail-title">
+    <div class="dlg-body">
+      <h3 id="assignment-detail-title"></h3>
+      <div id="assignment-detail-content"></div>
+      <form method="dialog" class="dlg-actions"><button type="submit" class="btn btn-secondary">Đóng</button></form>
+    </div>
+  </dialog>
+  <script>
+  window.PAGE = {"title": "Danh sách bài", "breadcrumb": ["Bài tập & kiểm tra", "Danh sách bài"], "description": "Quản lý các bài tập và bài kiểm tra đã tạo cho học sinh.", "action": "#assignment-create"};
+</script>
+<script src="../../assets/data-loader.js"></script>
+<script src="../../teacher/connect.js"></script>
+<script src="assignment.js"></script>
+</body>
+</html>

@@ -204,3 +204,32 @@
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+/* Tiêu đề, mô tả và thao tác trang cùng nằm trong topbar. */
+.topbar.has-description {
+  height: auto;
+  min-height: 112px;
+  flex-shrink: 0;
+  padding: 18px 32px;
+}
+.topbar.has-description .topbar-title { flex: 1; }
+.topbar.has-description h1 { margin-top: 4px; white-space: normal; }
+.topbar-description { margin: 6px 0 0; color: var(--muted, #6b7280); font-size: 13px; line-height: 1.5; }
+.topbar-page-actions { display: flex; align-items: center; gap: 10px; margin-right: 6px; }
+.topbar-page-actions[hidden], .topbar-description[hidden] { display: none; }
+.topbar-page-actions .btn { white-space: nowrap; }
+@media (max-width: 1000px) {
+  .topbar.has-description .account-info { display: none; }
+}
+@media (max-width: 820px) {
+  .topbar.has-description { padding: 16px 18px; }
+}
+@media (max-width: 720px) {
+  .topbar.has-description { flex-wrap: wrap; gap: 14px; }
+  .topbar.has-description .topbar-title { flex-basis: 100%; }
+  .topbar.has-description .topbar-actions { width: 100%; justify-content: flex-end; }
+  .topbar.has-description .topbar-page-actions { margin-right: auto; }
+  .topbar.has-description .breadcrumb ol { flex-wrap: wrap; row-gap: 4px; }
+}
+@media (max-width: 560px) {
+  .topbar.has-description { padding: 16px; }
+}

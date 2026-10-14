@@ -27,6 +27,7 @@ body {
 
 /* ---------- Khung sidebar ---------- */
 .sidebar {
+  z-index: 20;
   position: fixed;
   inset: 0 auto 0 0;
   width: var(--sb-width);
@@ -298,3 +299,32 @@ summary.nav-link::-webkit-details-marker { display: none; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+/* Điều khiển độ rộng do teacher/connect.js tạo. Cùng dùng --sb-width với .main. */
+.sidebar-resizer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--sb-width) - 4px);
+  width: 8px;
+  z-index: 30;
+  cursor: col-resize;
+  touch-action: none;
+}
+.sidebar-resizer:hover, .sidebar-resizer:focus-visible {
+  background: rgba(26, 115, 232, .18);
+  outline: none;
+}
+.sb-dragging, .sb-dragging * { cursor: col-resize !important; user-select: none; }
+.sidebar-collapsed .sidebar .brand-text,
+.sidebar-collapsed .sidebar .nav-link span,
+.sidebar-collapsed .sidebar .nav-sub a span,
+.sidebar-collapsed .sidebar .chevron,
+.sidebar-collapsed .sidebar .user-info,
+.sidebar-collapsed .sidebar .user-actions { display: none; }
+.sidebar-collapsed .sidebar .brand,
+.sidebar-collapsed .sidebar .user { justify-content: center; }
+.sidebar-collapsed .sidebar .nav-link,
+.sidebar-collapsed .sidebar .nav-sub a { justify-content: center; gap: 0; padding: 10px; }
+.sidebar-collapsed .sidebar .nav-sub li::before,
+.sidebar-collapsed .sidebar .nav-sub li::after { display: none; }
+.layout-error { padding: 12px 24px; color: #b91c1c; font-size: 13px; }

@@ -1,6 +1,7 @@
 # Thiet_ke_Web
 Web phục vụ môn TK Web
-`BTL_cuoiki/
+```
+BTL_cuoiki/
 ├─ index.html                          Đăng nhập, chuyển trang theo vai trò
 ├─ assets/
 │  └─ image/Logo.png
@@ -111,5 +112,5 @@ Web phục vụ môn TK Web
    │  ├─ report.html
    │  ├─ report.css
    │  └─ report.js
-
+```
 

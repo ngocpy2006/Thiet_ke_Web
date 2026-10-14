@@ -22,18 +22,19 @@
     <main class="content">
       <div class="page-shell">
 
-        <a id="assignment-create" class="btn btn-primary" href="../../teacher/create-assignment/create-assignment.html">
-            <svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
-            Tạo bài mới
-          </a>
-
         <section class="card assignments-card" aria-label="Danh sách bài tập và bài kiểm tra">
-          <div class="tabs" role="tablist" aria-label="Trạng thái bài">
-            <button id="tab-all" class="tab is-active" type="button" role="tab" data-phase="" aria-controls="assignments-panel" aria-selected="true">Tất cả <span class="tab-count">0</span></button>
-            <button id="tab-closed" class="tab" type="button" role="tab" data-phase="closed" aria-controls="assignments-panel" aria-selected="false" tabindex="-1">Đã giao <span class="tab-count">0</span></button>
-            <button id="tab-ongoing" class="tab" type="button" role="tab" data-phase="ongoing" aria-controls="assignments-panel" aria-selected="false" tabindex="-1">Đang giao <span class="tab-count">0</span></button>
-            <button id="tab-upcoming" class="tab" type="button" role="tab" data-phase="upcoming" aria-controls="assignments-panel" aria-selected="false" tabindex="-1">Sắp giao <span class="tab-count">0</span></button>
-            <button id="tab-draft" class="tab" type="button" role="tab" data-phase="draft" aria-controls="assignments-panel" aria-selected="false" tabindex="-1">Bản nháp <span class="tab-count">0</span></button>
+          <div class="assignments-header">
+            <div class="tabs" role="tablist" aria-label="Trạng thái bài">
+              <button id="tab-all" class="tab is-active" type="button" role="tab" data-phase="" aria-controls="assignments-panel" aria-selected="true">Tất cả <span class="tab-count">0</span></button>
+              <button id="tab-closed" class="tab" type="button" role="tab" data-phase="closed" aria-controls="assignments-panel" aria-selected="false" tabindex="-1">Đã giao <span class="tab-count">0</span></button>
+              <button id="tab-ongoing" class="tab" type="button" role="tab" data-phase="ongoing" aria-controls="assignments-panel" aria-selected="false" tabindex="-1">Đang giao <span class="tab-count">0</span></button>
+              <button id="tab-upcoming" class="tab" type="button" role="tab" data-phase="upcoming" aria-controls="assignments-panel" aria-selected="false" tabindex="-1">Sắp giao <span class="tab-count">0</span></button>
+              <button id="tab-draft" class="tab" type="button" role="tab" data-phase="draft" aria-controls="assignments-panel" aria-selected="false" tabindex="-1">Bản nháp <span class="tab-count">0</span></button>
+            </div>
+            <a id="assignment-create" class="btn btn-primary" href="../../teacher/create-assignment/create-assignment.html">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+              Tạo bài mới
+            </a>
           </div>
 
           <div id="assignments-panel" role="tabpanel" aria-labelledby="tab-all">
@@ -75,7 +76,7 @@
     </div>
   </dialog>
   <script>
-  window.PAGE = {"title": "Danh sách bài", "breadcrumb": ["Bài tập & kiểm tra", "Danh sách bài"], "description": "Quản lý các bài tập và bài kiểm tra đã tạo cho học sinh.", "action": "#assignment-create"};
+  window.PAGE = {"title": "Danh sách bài", "breadcrumb": ["Bài tập & kiểm tra", "Danh sách bài"]};
 </script>
 <script src="../../assets/data-loader.js"></script>
 <script src="../../teacher/connect.js"></script>

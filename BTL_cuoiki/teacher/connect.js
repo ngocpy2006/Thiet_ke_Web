@@ -92,20 +92,6 @@
 
     if (title) title.textContent = cfg.title || '';
     if (cfg.title) document.title = 'Learnova - ' + cfg.title;
-    const description = document.getElementById('pageDescription');
-    if (description) {
-      description.textContent = cfg.description || '';
-      description.hidden = !cfg.description;
-    }
-    const topbar = document.querySelector('.topbar');
-    if (topbar) topbar.classList.toggle('has-description', Boolean(cfg.description));
-    const actionHost = document.getElementById('pageActions');
-    const action = cfg.action ? document.querySelector(cfg.action) : null;
-    if (actionHost && action) {
-      actionHost.replaceChildren(action);
-      actionHost.hidden = false;
-    }
-
 
     if (crumb && Array.isArray(cfg.breadcrumb)) {
       // Giữ mục Trang chủ; thêm breadcrumb bằng textContent.

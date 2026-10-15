@@ -1,0 +1,104 @@
+/* ========== Giao diện bổ sung (Tạo Card Thống Kê giống Ảnh 2) ========== */
+
+.layout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Container chứa các card thống kê */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 22px;
+}
+
+/* Thẻ bài nhỏ gọn, bo góc mềm mại */
+.stat-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  border: 1px solid #edf0f3;
+}
+
+/* Khối màu icon */
+.stat-icon {
+  flex: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+}
+
+.stat-icon .icon {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Định dạng text bên trong thẻ */
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--muted, #6b7280);
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.1;
+}
+
+.stat-info small {
+  font-size: 12px;
+  color: var(--muted, #6b7280);
+}
+
+/* Các lớp màu tùy biến cho Icon thẻ */
+.bg-blue-soft {
+  background-color: #e8f0fe;
+}
+.text-blue {
+  color: #1a73e8;
+}
+
+.bg-purple-soft {
+  background-color: #f3e8ff;
+}
+.text-purple {
+  color: #9333ea;
+}
+
+.bg-red-soft {
+  background-color: #fee2e2;
+}
+.text-red {
+  color: #dc2626;
+}
+
+/* Làm gọn thanh tìm kiếm */
+.search-box input.filter-select {
+  padding-left: 40px;
+  border-radius: 10px;
+}

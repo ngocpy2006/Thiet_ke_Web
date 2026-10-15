@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learnova - Thông tin bài</title>
+
+    <link rel="stylesheet" href="/BTL_cuoiki/partial/sidebar/sidebar.css" />
+    <link rel="stylesheet" href="/BTL_cuoiki/partial/topbar/topbar.css" />
+    <link
+      rel="stylesheet"
+      href="/BTL_cuoiki/partial/assignment/assignment.css"
+    />
+    <link rel="stylesheet" href="/BTL_cuoiki/partial/footer/footer.css" />
+    <link
+      rel="stylesheet"
+      href="/BTL_cuoiki/student/danhsachbai/danhsachbai.css"
+    />
+
+    <style>
+      /* CSS nội bộ dành riêng cho layout trang Thông tin bài */
+      .info-layout {
+        display: grid;
+        grid-template-columns: 1.8fr 1fr; /* Chia cột trái to hơn cột phải */
+        gap: 24px;
+        padding: 0 22px;
+        max-width: 1200px;
+      }
+
+      .info-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        border: 1px solid #edf0f3;
+        margin-bottom: 24px;
+      }
+
+      .card-header-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .card-header-flex h2 {
+        margin: 0 0 4px 0;
+        font-size: 20px;
+        color: #111827;
+      }
+      .card-header-flex small {
+        color: #6b7280;
+        font-size: 13px;
+      }
+
+      .desc-text {
+        color: #374151;
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 16px 0;
+      }
+
+      /* Lưới 3 ô thống kê */
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+      .stat-box {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 16px;
+        position: relative;
+      }
+      .stat-box .box-label {
+        font-size: 13px;
+        color: #6b7280;
+      }
+      .stat-box .box-val {
+        display: block;
+        font-size: 24px;
+        font-weight: 700;
+        color: #111827;
+        margin: 8px 0 4px;
+      }
+      .stat-box .box-sub {
+        font-size: 12px;
+        color: #6b7280;
+      }
+      .stat-box svg {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 18px;
+        fill: none;
+        stroke: #9ca3af;
+      }
+
+      /* Danh sách check (Quy định & Điều kiện) */
+      .check-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .check-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: #f3f4f6;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        color: #374151;
+        font-weight: 500;
+      }
+      .check-item svg {
+        width: 18px;
+        height: 18px;
+        background: #374151;
+        color: #fff;
+        border-radius: 4px;
+        padding: 2px;
+      }
+
+      /* Nút làm bài dạng liên kết */
+      .btn-dark {
+        background: #1f2937;
+        color: #fff;
+        border: none;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 16px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+      }
+      .btn-dark:hover {
+        background: #111827;
+      }
+
+      .badge-ok {
+        background: #374151;
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 12px;
+      }
+
+      @media (max-width: 900px) {
+        .info-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+      <a href="index.html" class="brand">
+        <div class="brand-logo" style="border: none; background: transparent">
+          <img
+            src="/BTL_cuoiki/assets/Logo.png"
+            alt="Learnova"
+            style="width: 100%; height: 100%; object-fit: contain"
+          />
+        </div>
+        <div class="brand-text">
+          <strong>LEARNOVA</strong>
+          <small>Smarter Classes - Better Progress</small>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="lop-hoc.html" class="nav-link" style="text-decoration: none">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Lớp học</span>
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <!-- NHÓM 1: BÀI TẬP -->
+        <details class="nav-group" open>
+          <summary class="nav-link">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path
+                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+              ></path>
+            </svg>
+            <span>Bài tập</span>
+            <svg class="chevron" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <ul class="nav-sub">
+            <li>
+              <a href="dang-dien-ra.html" class="is-active">
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  style="width: 18px; height: 18px; margin-right: 8px"
+                >
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+                <span>Danh sách bài</span>
+              </a>
+            </li>
+          </ul>
+        </details>
+
+        <div class="nav-divider"></div>
+
+        <!-- NHÓM 2: KẾT QUẢ -->
+        <details class="nav-group" open>
+          <summary class="nav-link">
+            <svg class="icon" viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+            <span>Kết quả</span>
+            <svg class="chevron" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <ul class="nav-sub">
+            <li>
+              <a href="/BTL_cuoiki/student/lichsubailam/lich-su-bai-lam.html"">
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  style="width: 18px; height: 18px; margin-right: 8px"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Lịch sử bài làm</span>
+              </a>
+            </li>
+            <li>
+              <a href="phan-tich-hoc-tap.html">
+                <svg
+                  class="icon"
+                  viewBox="0 0 24 24"
+                  style="width: 18px; height: 18px; margin-right: 8px"
+                >
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+                <span>Phân tích học tập</span>
+              </a>
+            </li>
+          </ul>
+        </details>
+      </nav>
+
+      <div class="user">
+        <div class="user-avatar">
+          MA
+          <span class="user-status"></span>
+        </div>
+        <div class="user-info">
+          <strong>Nguyễn Minh Anh</strong>
+          <small>Học sinh</small>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main">
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="topbar-title">
+          <nav class="breadcrumb">
+            <ol>
+              <li>
+                <a href="#"
+                  ><svg class="icon" viewBox="0 0 24 24">
+                    <path
+                      d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                    ></path>
+                  </svg>
+                  Trang chủ</a
+                >
+              </li>
+              <li><a href="#">Học sinh</a></li>
+              <li><a href="dang-dien-ra.html">Danh sách bài</a></li>
+              <li>Thông tin bài</li>
+            </ol>
+          </nav>
+          <h1>Thông tin bài</h1>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="bell">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="bell-dot"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <div class="content">
+        <div class="info-layout">
+          <!-- CỘT TRÁI: THÔNG TIN BÀI -->
+          <div class="info-col-left">
+            <div class="info-card">
+              <div class="card-header-flex">
+                <div>
+                  <h2>Kiểm tra 45 phút · Hàm số</h2>
+                  <small>Toán 10A1 · Cô Nguyễn Thu Lan</small>
+                </div>
+                <button
+                  style="border: none; background: transparent; cursor: pointer"
+                >
+                  <svg
+                    style="width: 24px; stroke: #9ca3af; fill: none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="5" cy="12" r="1"></circle>
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="19" cy="12" r="1"></circle>
+                  </svg>
+                </button>
+              </div>
+
+              <p class="desc-text">
+                Bài kiểm tra đánh giá kiến thức về tập xác định, sự biến thiên
+                và đồ thị hàm số bậc hai. Hãy đọc kỹ quy định trước khi bắt đầu.
+              </p>
+
+              <div class="stats-row">
+                <div class="stat-box">
+                  <span class="box-label">Số câu</span>
+                  <span class="box-val">20</span>
+                  <span class="box-sub">18 trắc nghiệm · 2 tự luận</span>
+                  <svg viewBox="0 0 24 24">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                </div>
+                <div class="stat-box">
+                  <span class="box-label">Thời gian</span>
+                  <span class="box-val">45 phút</span>
+                  <span class="box-sub">Không thể tạm dừng</span>
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div class="stat-box">
+                  <span class="box-label">Deadline</span>
+                  <span class="box-val">18:00</span>
+                  <span class="box-sub">14/09/2026</span>
+                  <svg viewBox="0 0 24 24">
+                    <rect
+                      x="3"
+                      y="4"
+                      width="18"
+                      height="18"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+              </div>
+
+              <h3 style="font-size: 15px; margin: 0 0 12px 0">
+                Quy định xem kết quả
+              </h3>
+              <div class="check-list">
+                <div class="check-item">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Chỉ xem điểm sau khi giáo viên chấm
+                </div>
+                <div class="check-item">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Lời giải hiển thị sau deadline
+                </div>
+                <div class="check-item">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Mỗi học sinh chỉ có 1 lượt làm
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CỘT PHẢI: ĐIỀU KIỆN & ACTION -->
+          <div class="info-col-right">
+            <div class="info-card">
+              <div class="card-header-flex">
+                <h3 style="font-size: 15px; margin: 0 0 12px 0">
+                  Điều kiện tham gia
+                </h3>
+                <button
+                  style="border: none; background: transparent; cursor: pointer"
+                >
+                  <svg
+                    style="width: 20px; stroke: #9ca3af; fill: none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="5" cy="12" r="1"></circle>
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="19" cy="12" r="1"></circle>
+                  </svg>
+                </button>
+              </div>
+
+              <span class="badge-ok">Đủ điều kiện</span>
+
+              <div class="check-list" style="margin-top: 0">
+                <div class="check-item">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Đúng tài khoản lớp 10A1
+                </div>
+                <div class="check-item">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Thiết bị đã kiểm tra
+                </div>
+                <div class="check-item">
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Kết nối ổn định
+                </div>
+              </div>
+
+              <!-- Thẻ a làm nút Bắt đầu làm bài trỏ sang kiem-tra.html -->
+              <a href="kiem-tra.html" class="btn-dark">Bắt đầu làm bài</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

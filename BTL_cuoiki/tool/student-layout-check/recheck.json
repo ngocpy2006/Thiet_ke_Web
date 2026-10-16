@@ -1,0 +1,133 @@
+{
+  "pages": [
+    {
+      "url": "/student/history/history.html",
+      "role": "student",
+      "sidebar": 1,
+      "topbar": 1,
+      "footer": 1,
+      "account": "Học sinh",
+      "name": "Nguyễn Văn An",
+      "mainWidth": 299,
+      "sidebarWidth": 76,
+      "viewport": 390,
+      "overflow": false,
+      "menu": [
+        "http://127.0.0.1:50828/student/classes/classes.html",
+        "http://127.0.0.1:50828/student/classes/classes.html",
+        "http://127.0.0.1:50828/partial/assignment/assignment.html?role=student&phase=ongoing",
+        "http://127.0.0.1:50828/student/history/history.html",
+        "http://127.0.0.1:50828/student/analytics/analytics.html"
+      ],
+      "active": [
+        "Lịch sử bài làm"
+      ],
+      "unresolved": 0,
+      "font": "Inter, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+      "tables": 1,
+      "headings": [
+        "Xu hướng điểm",
+        "Lịch sử"
+      ],
+      "request_failures": [],
+      "exceptions": []
+    },
+    {
+      "url": "/BTL_cuoiki/partial/assignment/assignment.html?role=student&phase=ongoing",
+      "role": "student",
+      "sidebar": 1,
+      "topbar": 1,
+      "footer": 1,
+      "account": "Học sinh",
+      "name": "Nguyễn Văn An",
+      "mainWidth": 1196,
+      "sidebarWidth": 244,
+      "viewport": 1440,
+      "overflow": false,
+      "menu": [
+        "http://127.0.0.1:50828/BTL_cuoiki/student/classes/classes.html",
+        "http://127.0.0.1:50828/BTL_cuoiki/student/classes/classes.html",
+        "http://127.0.0.1:50828/BTL_cuoiki/partial/assignment/assignment.html?role=student&phase=ongoing",
+        "http://127.0.0.1:50828/BTL_cuoiki/student/history/history.html",
+        "http://127.0.0.1:50828/BTL_cuoiki/student/analytics/analytics.html"
+      ],
+      "active": [
+        "Danh sách bài"
+      ],
+      "unresolved": 0,
+      "font": "Inter, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+      "tables": 1,
+      "headings": [
+        "Bài của tôi"
+      ],
+      "request_failures": [],
+      "exceptions": []
+    }
+  ],
+  "errors": [
+    {
+      "route": "teacher/question-bank/question-bank.html",
+      "error": "{'exceptionId': 1, 'text': 'Uncaught (in promise) TypeError: Failed to fetch', 'lineNumber': 0, 'columnNumber': 0, 'exception': {'type': 'object', 'subtype': 'error', 'className': 'TypeError', 'description': 'TypeError: Failed to fetch', 'objectId': '3822404670793956977.2.3'}}",
+      "network": [
+        {
+          "method": "Network.loadingFailed",
+          "params": {
+            "requestId": "11992.48",
+            "timestamp": 152056.398262,
+            "type": "Fetch",
+            "errorText": "net::ERR_CONNECTION_RESET",
+            "canceled": false
+          }
+        }
+      ]
+    },
+    {
+      "route": "student/classes/classes.html mobile",
+      "error": "{'exceptionId': 2, 'text': 'Uncaught (in promise) TypeError: Failed to fetch', 'lineNumber': 0, 'columnNumber': 0, 'exception': {'type': 'object', 'subtype': 'error', 'className': 'TypeError', 'description': 'TypeError: Failed to fetch', 'objectId': '3822404670793956977.3.2'}}",
+      "network": [
+        {
+          "method": "Network.loadingFailed",
+          "params": {
+            "requestId": "11992.88",
+            "timestamp": 152075.466731,
+            "type": "Fetch",
+            "errorText": "net::ERR_CONNECTION_RESET",
+            "canceled": false
+          }
+        }
+      ]
+    },
+    {
+      "route": "student/exam/exam.html mobile",
+      "error": "{'exceptionId': 3, 'text': 'Uncaught (in promise) TypeError: Failed to fetch', 'lineNumber': 0, 'columnNumber': 0, 'exception': {'type': 'object', 'subtype': 'error', 'className': 'TypeError', 'description': 'TypeError: Failed to fetch', 'objectId': '3822404670793956977.4.2'}}",
+      "network": [
+        {
+          "method": "Network.loadingFailed",
+          "params": {
+            "requestId": "11992.126",
+            "timestamp": 152094.52752,
+            "type": "Fetch",
+            "errorText": "net::ERR_CONNECTION_RESET",
+            "canceled": false
+          }
+        }
+      ]
+    },
+    {
+      "route": "partial/assignment/assignment.html?role=student&phase=ongoing mobile",
+      "error": "{'exceptionId': 4, 'text': 'Uncaught (in promise) TypeError: Failed to fetch', 'lineNumber': 0, 'columnNumber': 0, 'exception': {'type': 'object', 'subtype': 'error', 'className': 'TypeError', 'description': 'TypeError: Failed to fetch', 'objectId': '3822404670793956977.5.3'}}",
+      "network": [
+        {
+          "method": "Network.loadingFailed",
+          "params": {
+            "requestId": "11992.164",
+            "timestamp": 152113.555498,
+            "type": "Fetch",
+            "errorText": "net::ERR_CONNECTION_RESET",
+            "canceled": false
+          }
+        }
+      ]
+    }
+  ]
+}

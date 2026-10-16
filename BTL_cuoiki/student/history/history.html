@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learnova - Lịch sử bài làm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;subset=vietnamese&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../partial/sidebar/sidebar.css">
+  <link rel="stylesheet" href="../../partial/topbar/topbar.css">
+  <link rel="stylesheet" href="../../partial/footer/footer.css">
+  <link rel="stylesheet" href="../../partial/assignment/assignment.css">
+  <link rel="stylesheet" href="../student.css">
+  <link rel="stylesheet" href="history.css">
+</head>
+<body data-role="student">
+  <div id="sidebar-slot"></div>
+  <div class="main">
+    <div id="topbar-slot"></div>
+    <main class="content student-page student-history">
+      <div class="layout-container">
+          
+          <div class="table-toolbar history-detail-1">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                class="input filter-select history-detail-2"
+               
+                placeholder="Tìm kiếm theo tên, mã khóa học..."
+              />
+            </div>
+            <select class="filter-select">
+              <option>Trạng thái</option>
+            </select>
+            <select class="filter-select">
+              <option>Lớp 10A1</option>
+            </select>
+            <select class="filter-select">
+              <option>Thời gian</option>
+            </select>
+          </div>
+
+          
+          <div class="history-top-grid">
+            
+            <div class="chart-card">
+              <div class="chart-header">
+                <div>
+                  <h3>Xu hướng điểm</h3>
+                  <small>6 bài gần nhất</small>
+                </div>
+                <button
+                 
+                 class="history-detail-3">
+                  <svg
+                   
+                    viewBox="0 0 24 24"
+                   class="history-detail-4">
+                    <circle cx="5" cy="12" r="1"></circle>
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="19" cy="12" r="1"></circle>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="mock-chart">
+                <div class="bar-group">
+                  <div class="bar history-detail-5"></div>
+                  <span class="bar-label">12/8</span>
+                </div>
+                <div class="bar-group">
+                  <div class="bar history-detail-6"></div>
+                  <span class="bar-label">18/8</span>
+                </div>
+                <div class="bar-group">
+                  <div class="bar history-detail-7"></div>
+                  <span class="bar-label">25/8</span>
+                </div>
+                <div class="bar-group">
+                  <div class="bar history-detail-8"></div>
+                  <span class="bar-label">02/9</span>
+                </div>
+                <div class="bar-group">
+                  <div class="bar history-detail-9"></div>
+                  <span class="bar-label">08/9</span>
+                </div>
+                <div class="bar-group">
+                  <div class="bar active history-detail-10"></div>
+                  <span class="bar-label">12/9</span>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="stats-col">
+              <div class="stat-card-small">
+                <div class="label-row">
+                  Điểm trung bình
+                  <svg
+                   
+                    viewBox="0 0 24 24"
+                   class="history-detail-11">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                </div>
+                <div class="value">7,8</div>
+                <div class="sub">+0,4 điểm so với tháng trước</div>
+              </div>
+              <div class="stat-card-small">
+                <div class="label-row">
+                  Bài đã làm
+                  <svg
+                   
+                    viewBox="0 0 24 24"
+                   class="history-detail-11">
+                    <rect
+                      x="3"
+                      y="4"
+                      width="18"
+                      height="18"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+                <div class="value">18</div>
+                <div class="sub">16 đã công bố điểm</div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="history-table-card table-wrap">
+            <div class="card-header">
+              <h3>Lịch sử</h3>
+              <button
+               
+               class="history-detail-3">
+                <svg
+                 
+                  viewBox="0 0 24 24"
+                 class="history-detail-4">
+                  <circle cx="5" cy="12" r="1"></circle>
+                  <circle cx="12" cy="12" r="1"></circle>
+                  <circle cx="19" cy="12" r="1"></circle>
+                </svg>
+              </button>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Bài</th>
+                  <th>Môn / Lớp</th>
+                  <th>Thời gian kết thúc</th>
+                  <th>Điểm</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    
+                    <a
+                      href="../../student/result-detail/result-detail.html"
+                     
+                     class="history-detail-12">
+                      <strong>Bài tập về nhà tuần 1</strong>
+                    </a>
+                  </td>
+                  <td>Toán - 10A1</td>
+                  <td>05/09/2026</td>
+                  <td><strong class="history-detail-13">9.0</strong></td>
+                  <td>
+                    <span class="status-badge status-open">Đã hoàn thành</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </main>
+    <div id="footer-slot"></div>
+  </div>
+  <script src="history.js"></script>
+  <script src="../../assets/data-loader.js"></script>
+  <script src="../../main.js"></script>
+</body>
+</html>

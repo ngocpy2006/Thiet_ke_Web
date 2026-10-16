@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+  <script>
+  window.PAGE = {
+    role: new URLSearchParams(location.search).get('role') === 'student' ? 'student' : 'teacher',
+    key: 'assignments', title: 'Danh sách bài', breadcrumb: ['Bài tập & kiểm tra', 'Danh sách bài']
+  };
+document.documentElement.dataset.role = window.PAGE.role;
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Learnova - Danh sách bài</title>
@@ -12,6 +19,8 @@
   <link rel="stylesheet" href="../topbar/topbar.css">
   <link rel="stylesheet" href="../footer/footer.css">
   <link rel="stylesheet" href="assignment.css">
+  <link rel="stylesheet" href="../../student/student.css">
+  <link rel="stylesheet" href="student-assignment.css">
 </head>
 <body>
 
@@ -75,11 +84,10 @@
       <form method="dialog" class="dlg-actions"><button type="submit" class="btn btn-secondary">Đóng</button></form>
     </div>
   </dialog>
-  <script>
-  window.PAGE = {"title": "Danh sách bài", "breadcrumb": ["Bài tập & kiểm tra", "Danh sách bài"]};
-</script>
+  
 <script src="../../assets/data-loader.js"></script>
-<script src="../../teacher/connect.js"></script>
+<script src="../../main.js"></script>
+<script src="student-assignment.js"></script>
 <script src="assignment.js"></script>
 </body>
 </html>

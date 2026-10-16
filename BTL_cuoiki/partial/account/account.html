@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learnova - Thông tin cá nhân</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../sidebar/sidebar.css">
+    <link rel="stylesheet" href="../topbar/topbar.css">
+    <link rel="stylesheet" href="../footer/footer.css">
+    <link rel="stylesheet" href="./account.css">
+</head>
+<body>
+  <div id="sidebar-slot"></div>
+  <div class="main">
+    <div id="topbar-slot"></div>
+<main class="content account-page p-4" id="content">
+      <!------------------------------------ Tiêu đề trang & Phụ đề ---------------------->
+      <div class="mb-4">  
+        <h1 class="h3 fw-bold text-primary mb-4">Thông tin cá nhân</h1>
+        <p class="text-muted">
+          Cập nhật thông tin cá nhân để trải nghiệm website tốt hơn.
+        </p>
+      </div>
+
+
+      <!------------------------------------------ Khung chia 2 cột ---------------------------------------------------->
+      <div class="row g-4">
+        <!--Tao khung hàng (row), g-4 là khoảng cách giữa các cột trong hàng -->
+        <!------------------------------------1. Form nhập liệu--------------------------------------------------------------->
+        <div class="col-lg-8">
+          <div class="card shadow-sm border-0 p-4">
+            <!-----------------------------------1.1. Ảnh đại diện--------------------------------------------------------------->
+            <div class="d-flex flex-row align-items-left text-left gap-5 mb-4">
+              <!-----Ảnh đại diện ------>
+              <span aria-hidden="true" class="profile-avatar">…</span>
+              <!-----Tên người dùng ------>
+              <div class="align-items-center">
+                <h5 class="fw-bold mb-1 fs-5.5" id="profile-display-name">Nguyễn Thị Lan</h5>
+                <p class="text-muted mb-0 fs-5.5">JPG, PNG (tối đa 5MB)</p>
+                <button class="btn btn-outline-primary btn-sm rounded-pill">
+                  Thay đổi ảnh
+                </button>
+              </div>
+            </div>
+            <!------------------------1.2. Form nhập liệu thông tin cá nhân--------------->
+            <div class="row row-col-2 g-3 mb-3">  
+              <!-----------Họ và tên-------------->
+              <div class="col-md-6">
+                <label class="form-label fw-bold" for="profile-name">Họ và tên<span class="text-danger">*</span></label>
+                <input class="form-control" id="profile-name" placeholder="Ví dụ: Nguyễn ABC...." type="text"/>
+              </div>
+              <!-----------Ngày sinh-------------->
+              <div class="col-md-6">
+                <label class="form-label fw-bold" for="profile-birthday">Ngày sinh</label>
+                <input class="form-control" id="profile-birthday" placeholder="Ví dụ: 01/01/1990" type="date"/>
+              </div>
+
+
+            <!------Số điện thoại----------->
+              <div class="col-md-6">
+                <label class="form-label fw-bold" for="profile-phone">Số điện thoại<span class="text-danger">*</span></label>
+                <input class="form-control" id="profile-phone" placeholder="Ví dụ: 0123456789" type="tel"/>
+              </div>
+              <!--------email------------>
+              <div class="col-md-6">
+                <label class="form-label fw-bold" for="profile-email">Email<span class="text-danger">*</span></label>
+                <input class="form-control" id="profile-email" placeholder="Ví dụ: example@gmail.com" type="email"/>
+                </div>
+
+
+            <!-----------Quốc gia----------->
+              <div class="col-md-6">
+                <label class="form-label fw-bold" for="profile-role">Tài khoản</label>
+                <select class="form-select" disabled="" id="profile-role">
+                  <option disabled="" selected="" value="">Loại tài khoản</option>
+                  <option value="Giaovien">Giáo viên</option>
+                  <option value="Hocsinh">Học sinh</option>
+                  <option value="Phuhuynh">Phụ huynh</option>
+                </select>
+              </div>
+
+
+              <div class="col-md-6">
+                <label class="form-label fw-bold" for="profile-address">Địa chỉ</label>
+                <input class="form-control" id="profile-address" placeholder="Ví dụ: Hà Nội-Việt Nam" type="text"/>
+              </div>
+            <!--------------------------2.Thay đổi mật khẩu-------------------------------------------->
+            <!--  Đường kẻ phân cách nhạt -->
+            <hr class="my-4 text-muted opacity-25"/>
+
+
+            <!-- Tiêu đề -->
+              <h6 class="fw-bold mb-1 fs-5" id="settings" tabindex="-1">
+                <i class="bi bi-shield-lock me-2"></i>Đổi mật khẩu
+              </h6>
+
+
+            <!-- mât khẩu cũ và mới -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label fw-bold" for="profile-old-password">Mật khẩu cũ</label>
+                <input class="form-control" id="profile-old-password" placeholder="Nhập mật khẩu cũ" type="password"/>
+              </div>
+
+
+              <div class="col-md-6">
+                <label class="form-label fw-bold" for="profile-new-password">Mật khẩu mới</label>
+                <input class="form-control" id="profile-new-password" placeholder="Nhập mật khẩu mới" type="password"/>
+              </div>
+            </div>
+
+
+            <!-----------------------------Nút lưu thông tin cá nhân------------------------------------>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="btn btn-primary w-100 py-2">
+                  <i class="bi bi-floppy me-2"></i> Lưu thông tin
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-------------------------------- Cột phải: Chứa các thẻ phụ (Chiếm 4/12 phần) ----------------------------------------------------------->
+        <div class="col-lg-4">
+          <!----------------------------------Thanh toán-------------------------------------------------->
+          <div class="card shadow-sm border-0 p-3 mb-3">
+            <div class="d-flex align-items-center justify-content-between">
+              <!--------- Khối trái: Icon + Chữ --------------->
+              <div class="d-flex align-items-center gap-3">
+                <!------------ Ô chứa Icon ----------------------->
+                <div class="bg-primary-subtle text-primary p-3 rounded-3">
+                  <i class="bi bi-credit-card-2-front fs-4"></i>
+                </div>
+                <!------------- Nội dung chữ --------------------->
+                <div>
+                  <h6 class="fw-bold mb-1 text-dark">Thanh toán</h6>
+                  <p class="text-muted small mb-0">
+                    Gia hạn tài khoản, quản lí phương thức thanh toán và lịch sử
+                    giao dịch
+                  </p>
+                </div>
+                <!-------------- Mũi tên bên phải --------------->
+              </div>
+              <i class="bi bi-chevron-right text-muted"></i>
+            </div>
+          </div>
+
+
+          <!----------------------------------Quản lí thiết bị---------------------------------------------->
+          <div class="card shadow-sm border-0 p-3 mb-3">
+            <div class="d-flex align-items-center justify-content-between">
+              <!--------- Khối trái: Icon + Chữ --------------->
+              <div class="d-flex align-items-center gap-3">
+                <!------------ Ô chứa Icon ----------------------->
+                <div class="bg-primary-subtle text-primary p-3 rounded-3">
+                  <i class="bi bi-phone-vibrate fs-4"></i>
+                </div>
+                <!------------- Nội dung chữ --------------------->
+                <div>
+                  <h6 class="fw-bold mb-1 text-dark">Quản lí thiết bị</h6>
+                  <p class="text-muted small mb-0">
+                    Xem và quản lí các thiết bị đã kết nối với tài khoản
+                  </p>
+                </div>
+                <!-------------- Mũi tên bên phải --------------->
+              </div>
+              <i class="bi bi-chevron-right text-muted"></i>
+            </div>
+
+
+            <!-------Thiết bị đã đăng nhập----------------------->
+            <hr class="my-3 opacity-25"/>  <!--opacity là độ mờ-->
+
+
+             <div class="bg-light px-2 py-3 fw-semibold">   <!--fw-semibold là độ dày chữ, semi là mức bán đậm-- bgligh là nền màu sáng--->
+                        <i class="bi bi-clock-history me-2"></i>
+                        Thiết bị đã đăng nhập gần đây
+              </div>
+
+
+            <div class="device-item-login">
+
+
+              <!--Thiết bị 1-->
+              <div class="device-item">
+                            <div class="device-icon">
+                                <i class="bi bi-pc-display"></i>
+                            </div>
+
+
+                            <div class="flex-grow-1">  
+                                <div class="device-name">
+                                    Windows · Chrome
+                                </div>
+                                <div class="device-detail">
+                                    Hà Nội, Việt Nam
+                                </div>
+                                <div class="device-detail">
+                                    Hôm nay, 20:15
+                                </div>
+                            </div>
+
+
+                            <span class="status-active">
+                                Đang hoạt động
+                            </span>
+                        </div>
+
+
+              <!--Thiết bị 2-->
+              <div class="device-item">
+                        <div class="device-icon">
+                          <i class="bi bi-phone"></i>
+                        </div>
+
+
+                        <div class="flex-grow-1">
+                        <div class="device-name">
+                           IPhone · Safari
+                        </div>  
+
+
+                        <div class="device-detail">
+                            Hà Nội, Việt Nam
+                        </div>
+
+
+                        <div class="device-detail">
+                              12/10/2026, 09:42
+                        </div>
+                        </div>
+
+
+                        <span class="status-logged-out">Đã đăng xuất</span>
+              </div>
+             
+                       
+               <div class="text-end">
+                        <a class="fs-6 text-decoration-none" href="#">
+                        Xem tất cả thiết bị
+                        <i class="bi bi-chevron-right ms-1"></i>
+                    </a>
+                </div>
+          </div>                
+          </div>
+
+
+           <!----------------------------------Xóa tài khoản---------------------------------------------->
+              <div class="card shadow-sm border-0 p-3 mb-3 delete-card">
+          <div class="d-flex align-items-center justify-content-between">
+
+
+            <!-- Khối trái: Icon + Chữ -->
+            <div class="d-flex align-items-center gap-3">
+
+
+              <!-- Ô chứa Icon -->
+              <div class="bg-danger-subtle text-danger p-3 rounded-3">
+                <i class="bi bi-trash3 fs-4"></i>
+              </div>
+
+
+              <!-- Nội dung chữ -->
+              <div>
+                <h6 class="fw-bold mb-1 text-danger">
+                  Xóa tài khoản
+                </h6>
+
+
+                <p class="text-danger small mb-0 delete-description">
+                  Lưu ý: hành động này không thể hoàn tác,
+                  xác nhận kỹ trước khi thao tác
+                </p>
+              </div>
+
+
+    </div>
+
+
+    <!-- Mũi tên bên phải -->
+    <i class="bi bi-chevron-right text-danger"></i>
+
+
+  </div>
+</div>
+              </div>
+            </div>
+          
+        
+      
+    </main>
+    <div id="footer-slot"></div>
+  </div>
+  <script>window.PAGE = { title: "Thông tin cá nhân", key: "account", breadcrumb: ["Thông tin cá nhân"] };</script>
+  <script src="../../assets/data-loader.js"></script>
+  <script src="../../main.js"></script>
+  <script src="account.js"></script>
+</body>
+</html>

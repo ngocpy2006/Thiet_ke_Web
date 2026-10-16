@@ -1,0 +1,25 @@
+.student-assignments .assignments-detail-1 { text-decoration: none }
+.student-assignments .assignments-detail-2 { width: 100% }
+.student-assignments .assignments-ongoing-detail-1 { margin-top: 16px; border-radius: 16px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
+.student-assignments .assignments-ongoing-detail-2 { padding: 20px 22px; display: flex; justify-content: space-between; }
+.student-assignments .assignments-ongoing-detail-3 { margin: 0; font-size: 16px }
+.student-assignments .assignments-ongoing-detail-4 { color: var(--muted); font-size: 12px }
+.student-assignments .assignments-ongoing-detail-5 { text-decoration: none; color: var(--text); display: block; }
+.student-assignments .assignments-closed-detail-1 { margin-top: 16px; border-radius: 16px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
+.student-assignments .assignments-closed-detail-2 { padding: 20px 22px; display: flex; justify-content: space-between; }
+.student-assignments .assignments-closed-detail-3 { margin: 0; font-size: 16px }
+.student-assignments .assignments-closed-detail-4 { color: var(--muted); font-size: 12px }
+.student-assignments .assignments-closed-detail-5 { text-decoration: none; color: var(--text); display: block; }
+.student-assignments .assignments-closed-detail-6 { color: var(--primary) }
+.student-assignments .assignments-upcoming-detail-1 { margin-top: 16px; border-radius: 16px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
+.student-assignments .assignments-upcoming-detail-2 { padding: 20px 22px; display: flex; justify-content: space-between; }
+.student-assignments .assignments-upcoming-detail-3 { margin: 0; font-size: 16px }
+.student-assignments .assignments-upcoming-detail-4 { color: var(--muted); font-size: 12px }
+.student-assignments #student-assignment-table > .assignments-card { margin-top: 0; }
+.student-assignments .assignments-header { padding: 0; }
+.student-assignments .data-table a { color: var(--text-strong); text-decoration: none; }
+.student-assignments .data-table a:hover { color: var(--primary); }
+.student-assignments .tab[aria-current="page"] { color: var(--primary); }
+
+/* Chỉ hiển thị nội dung của đúng vai trò trong lúc tải. */
+html[data-role="student"] main.content > .page-shell { display: none; }

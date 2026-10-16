@@ -267,39 +267,10 @@
     return db;
   }
 
-  function syncLayoutData() {
-    if (!global.DB) return;
-    const teacher = global.DB.teachers[0];
-    document.querySelectorAll(".user-info strong, .account-info strong").forEach(el => {
-      el.textContent = teacher.fullName;
-    });
-    const initials = teacher.fullName.trim().split(/\s+/).slice(-2).map(word => word[0]).join("");
-    const avatar = document.querySelector(".user-avatar > span");
-    if (avatar) avatar.textContent = initials;
-    const accountAvatar = document.querySelector(".account-avatar");
-    if (accountAvatar) accountAvatar.textContent = teacher.fullName.trim().split(/\s+/).pop()[0];
-    const unread = global.DB.notifications.filter(item => item.userId === teacher.id && !item.read).length;
-    const dot = document.querySelector(".bell-dot");
-    if (dot) dot.hidden = !unread;
-    const bell = document.querySelector(".bell");
-    if (bell) bell.setAttribute("aria-label", unread ? "Thông báo (" + unread + " chưa đọc)" : "Thông báo");
-    const contact = global.DB.adminContact;
-    if (contact && contact.email) {
-      const email = document.querySelector(".footer-admin a");
-      if (email) {
-        email.href = "mailto:" + contact.email;
-        // Giữ biểu tượng email của footer.
-        Array.from(email.childNodes).filter(node => node.nodeType === Node.TEXT_NODE).forEach(node => node.remove());
-        email.append(document.createTextNode(contact.email));
-      }
-    }
-  }
-
-  document.addEventListener("layout:ready", syncLayoutData);
   global.dataReady = loadData();
   global.dataReady.then(() => {
     status.remove();
     if (content) content.removeAttribute("aria-busy");
-    syncLayoutData();
+    document.dispatchEvent(new CustomEvent("data:ready"));
   }).catch(global.reportDataError);
 })(window);

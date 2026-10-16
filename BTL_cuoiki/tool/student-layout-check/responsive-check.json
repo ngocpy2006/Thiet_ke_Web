@@ -1,0 +1,379 @@
+{
+  "pages": [
+    {
+      "url": "/teacher/question-bank/question-bank.html",
+      "role": "teacher",
+      "sidebar": 1,
+      "topbar": 1,
+      "footer": 1,
+      "account": "Giáo viên",
+      "name": "Nguyễn Thu Lan",
+      "mainWidth": 1181,
+      "sidebarWidth": 244,
+      "viewport": 1440,
+      "overflow": false,
+      "scrollWidth": 1425,
+      "clientWidth": 1425,
+      "overflowing": [
+        {
+          "tag": "TABLE",
+          "cls": "table",
+          "right": 1825
+        },
+        {
+          "tag": "THEAD",
+          "cls": "",
+          "right": 1825
+        },
+        {
+          "tag": "TR",
+          "cls": "",
+          "right": 1825
+        },
+        {
+          "tag": "TH",
+          "cls": "",
+          "right": 1550
+        },
+        {
+          "tag": "TH",
+          "cls": "",
+          "right": 1658
+        },
+        {
+          "tag": "TH",
+          "cls": "",
+          "right": 1743
+        },
+        {
+          "tag": "TH",
+          "cls": "",
+          "right": 1825
+        },
+        {
+          "tag": "TBODY",
+          "cls": "",
+          "right": 1825
+        },
+        {
+          "tag": "TR",
+          "cls": "",
+          "right": 1825
+        },
+        {
+          "tag": "TD",
+          "cls": "muted",
+          "right": 1550
+        },
+        {
+          "tag": "TD",
+          "cls": "muted",
+          "right": 1658
+        },
+        {
+          "tag": "TD",
+          "cls": "",
+          "right": 1743
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "star",
+          "right": 1704
+        },
+        {
+          "tag": "TD",
+          "cls": "",
+          "right": 1825
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "more",
+          "right": 1789
+        }
+      ],
+      "menu": [
+        "http://127.0.0.1:49798/teacher/overview/overview.html",
+        "http://127.0.0.1:49798/teacher/overview/overview.html",
+        "http://127.0.0.1:49798/teacher/classes/classes.html",
+        "http://127.0.0.1:49798/teacher/students/students.html",
+        "http://127.0.0.1:49798/teacher/question-bank/question-bank.html",
+        "http://127.0.0.1:49798/partial/assignment/assignment.html",
+        "http://127.0.0.1:49798/teacher/create-assignment/create-assignment.html",
+        "http://127.0.0.1:49798/teacher/analytics/analytics.html",
+        "#"
+      ],
+      "active": [
+        "Ngân hàng câu hỏi"
+      ],
+      "unresolved": 0,
+      "font": "Inter, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+      "tables": 1,
+      "headings": [
+        "Xem trước câu hỏi"
+      ],
+      "request_failures": [],
+      "exceptions": []
+    },
+    {
+      "url": "/student/classes/classes.html",
+      "role": "student",
+      "sidebar": 1,
+      "topbar": 1,
+      "footer": 1,
+      "account": "Học sinh",
+      "name": "Nguyễn Văn An",
+      "mainWidth": 299,
+      "sidebarWidth": 76,
+      "viewport": 390,
+      "overflow": false,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflowing": [
+        {
+          "tag": "TABLE",
+          "cls": "data-table",
+          "right": 737
+        },
+        {
+          "tag": "THEAD",
+          "cls": "",
+          "right": 737
+        },
+        {
+          "tag": "TR",
+          "cls": "",
+          "right": 737
+        },
+        {
+          "tag": "TH",
+          "cls": "",
+          "right": 560
+        },
+        {
+          "tag": "TH",
+          "cls": "",
+          "right": 626
+        },
+        {
+          "tag": "TH",
+          "cls": "",
+          "right": 737
+        },
+        {
+          "tag": "TBODY",
+          "cls": "",
+          "right": 737
+        },
+        {
+          "tag": "TR",
+          "cls": "",
+          "right": 737
+        },
+        {
+          "tag": "TD",
+          "cls": "",
+          "right": 560
+        },
+        {
+          "tag": "DIV",
+          "cls": "teacher-info",
+          "right": 544
+        },
+        {
+          "tag": "DIV",
+          "cls": "teacher-avatar",
+          "right": 406
+        },
+        {
+          "tag": "SPAN",
+          "cls": "",
+          "right": 487
+        },
+        {
+          "tag": "TD",
+          "cls": "",
+          "right": 626
+        },
+        {
+          "tag": "TD",
+          "cls": "",
+          "right": 737
+        },
+        {
+          "tag": "SPAN",
+          "cls": "status-badge status-open",
+          "right": 710
+        }
+      ],
+      "menu": [
+        "http://127.0.0.1:49798/student/classes/classes.html",
+        "http://127.0.0.1:49798/student/classes/classes.html",
+        "http://127.0.0.1:49798/partial/assignment/assignment.html?role=student&phase=ongoing",
+        "http://127.0.0.1:49798/student/history/history.html",
+        "http://127.0.0.1:49798/student/analytics/analytics.html"
+      ],
+      "active": [
+        "Lớp học"
+      ],
+      "unresolved": 0,
+      "font": "Inter, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+      "tables": 1,
+      "headings": [
+        "Các lớp của tôi"
+      ],
+      "request_failures": [],
+      "exceptions": []
+    },
+    {
+      "url": "/student/exam/exam.html",
+      "role": "student",
+      "sidebar": 1,
+      "topbar": 1,
+      "footer": 1,
+      "account": "Học sinh",
+      "name": "Nguyễn Văn An",
+      "mainWidth": 299,
+      "sidebarWidth": 76,
+      "viewport": 390,
+      "overflow": false,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflowing": [],
+      "menu": [
+        "http://127.0.0.1:49798/student/classes/classes.html",
+        "http://127.0.0.1:49798/student/classes/classes.html",
+        "http://127.0.0.1:49798/partial/assignment/assignment.html?role=student&phase=ongoing",
+        "http://127.0.0.1:49798/student/history/history.html",
+        "http://127.0.0.1:49798/student/analytics/analytics.html"
+      ],
+      "active": [
+        "Danh sách bài"
+      ],
+      "unresolved": 0,
+      "font": "Inter, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+      "tables": 0,
+      "headings": [
+        "Câu 13 / 20",
+        "Điều hướng câu"
+      ],
+      "request_failures": [],
+      "exceptions": []
+    },
+    {
+      "url": "/partial/assignment/assignment.html?role=student&phase=ongoing",
+      "role": "student",
+      "sidebar": 1,
+      "topbar": 1,
+      "footer": 1,
+      "account": "Học sinh",
+      "name": "Nguyễn Văn An",
+      "mainWidth": 299,
+      "sidebarWidth": 76,
+      "viewport": 390,
+      "overflow": false,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "overflowing": [
+        {
+          "tag": "TABLE",
+          "cls": "data-table",
+          "right": 732
+        },
+        {
+          "tag": "THEAD",
+          "cls": "",
+          "right": 732
+        },
+        {
+          "tag": "TR",
+          "cls": "",
+          "right": 732
+        },
+        {
+          "tag": "TH",
+          "cls": "",
+          "right": 392
+        },
+        {
+          "tag": "TH",
+          "cls": "",
+          "right": 505
+        },
+        {
+          "tag": "TH",
+          "cls": "",
+          "right": 632
+        },
+        {
+          "tag": "TH",
+          "cls": "",
+          "right": 732
+        },
+        {
+          "tag": "TBODY",
+          "cls": "",
+          "right": 732
+        },
+        {
+          "tag": "TR",
+          "cls": "",
+          "right": 732
+        },
+        {
+          "tag": "TD",
+          "cls": "",
+          "right": 392
+        },
+        {
+          "tag": "TD",
+          "cls": "",
+          "right": 505
+        },
+        {
+          "tag": "TD",
+          "cls": "",
+          "right": 632
+        },
+        {
+          "tag": "TD",
+          "cls": "",
+          "right": 732
+        },
+        {
+          "tag": "SPAN",
+          "cls": "status-badge status-draft",
+          "right": 716
+        }
+      ],
+      "menu": [
+        "http://127.0.0.1:49798/student/classes/classes.html",
+        "http://127.0.0.1:49798/student/classes/classes.html",
+        "http://127.0.0.1:49798/partial/assignment/assignment.html?role=student&phase=ongoing",
+        "http://127.0.0.1:49798/student/history/history.html",
+        "http://127.0.0.1:49798/student/analytics/analytics.html"
+      ],
+      "active": [
+        "Danh sách bài"
+      ],
+      "unresolved": 0,
+      "font": "Inter, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+      "tables": 1,
+      "headings": [
+        "Bài của tôi"
+      ],
+      "request_failures": [],
+      "exceptions": []
+    }
+  ],
+  "errors": [
+    {
+      "route": "student/history/history.html mobile",
+      "error": "{'url': '/student/history/history.html', 'role': 'student', 'sidebar': 1, 'topbar': 1, 'footer': 1, 'account': 'Học sinh', 'name': 'Nguyễn Văn An', 'mainWidth': 299, 'sidebarWidth': 76, 'viewport': 390, 'overflow': True, 'scrollWidth': 381, 'clientWidth': 375, 'overflowing': [{'tag': 'DIV', 'cls': 'history-table-card table-wrap', 'right': 381}, {'tag': 'TABLE', 'cls': 'data-table', 'right': 759}, {'tag': 'THEAD', 'cls': '', 'right': 759}, {'tag': 'TR', 'cls': '', 'right': 759}, {'tag': 'TH', 'cls': '', 'right': 406}, {'tag': 'TH', 'cls': '', 'right': 553}, {'tag': 'TH', 'cls': '', 'right': 621}, {'tag': 'TH', 'cls': '', 'right': 759}, {'tag': 'TBODY', 'cls': '', 'right': 759}, {'tag': 'TR', 'cls': '', 'right': 759}, {'tag': 'TD', 'cls': '', 'right': 406}, {'tag': 'TD', 'cls': '', 'right': 553}, {'tag': 'TD', 'cls': '', 'right': 621}, {'tag': 'STRONG', 'cls': 'history-detail-13', 'right': 590}, {'tag': 'TD', 'cls': '', 'right': 759}], 'menu': ['http://127.0.0.1:49798/student/classes/classes.html', 'http://127.0.0.1:49798/student/classes/classes.html', 'http://127.0.0.1:49798/partial/assignment/assignment.html?role=student&phase=ongoing', 'http://127.0.0.1:49798/student/history/history.html', 'http://127.0.0.1:49798/student/analytics/analytics.html'], 'active': ['Lịch sử bài làm'], 'unresolved': 0, 'font': 'Inter, system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif', 'tables': 1, 'headings': ['Xu hướng điểm', 'Lịch sử'], 'request_failures': [], 'exceptions': []}",
+      "network": []
+    },
+    {
+      "route": "tabs/subdirectory",
+      "error": "{'exceptionId': 1, 'text': 'Uncaught (in promise) TypeError: Failed to fetch', 'lineNumber': 0, 'columnNumber': 0, 'exception': {'type': 'object', 'subtype': 'error', 'className': 'TypeError', 'description': 'TypeError: Failed to fetch', 'objectId': '-7685868629777929125.7.3'}}"
+    }
+  ]
+}

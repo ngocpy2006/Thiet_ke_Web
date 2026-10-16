@@ -208,3 +208,40 @@
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+@media(max-width:560px) {
+  .topbar { height: auto; min-height: 88px; gap: 8px; padding: 14px 12px; }
+  .topbar-title { min-width: 0; }
+  .topbar h1 { font-size: 18px; }
+  .breadcrumb { font-size: 11px; }
+  .topbar-actions { gap: 8px; flex-shrink: 0; }
+  .topbar-divider { display: none; }
+}
+
+@media(max-width:560px) {
+ .breadcrumb ol { white-space: nowrap; overflow: hidden; }
+ .breadcrumb li { min-width: 0; flex: none; }
+ .breadcrumb li:not(:first-child):not(:last-child) { display: none; }
+ .breadcrumb li:last-child { display: block; flex: 1; overflow: hidden; text-overflow: ellipsis; }
+}
+
+.account-dropdown { position: relative; }
+.account[aria-expanded="true"] { background: var(--hover, #f3f4f6); }
+.account[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+.account-menu {
+  position: absolute; top: calc(100% + 12px); right: 0; z-index: 40;
+  width: 224px; max-width: calc(100vw - var(--sb-width, 76px) - 24px);
+  padding: 6px; border: 1px solid var(--line, #e5e7eb); border-radius: 12px;
+  background: #fff; box-shadow: 0 8px 28px rgba(15, 23, 42, .14);
+}
+.account-menu[hidden] { display: none; }
+.account-menu a, .account-menu button {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  padding: 10px 12px; border: 0; border-radius: 8px; background: transparent;
+  color: var(--text, #1f2937); font: inherit; font-size: 14px;
+  text-align: left; text-decoration: none; cursor: pointer;
+}
+.account-menu a:hover, .account-menu button:hover { background: var(--hover, #f3f4f6); }
+.account-menu a:focus-visible, .account-menu button:focus-visible { outline: 2px solid var(--blue, #1a73e8); outline-offset: -2px; }
+.account-menu hr { margin: 4px 6px; border: 0; border-top: 1px solid var(--line, #e5e7eb); opacity: 1; }
+.account-menu [data-logout] { color: #dc2626; }

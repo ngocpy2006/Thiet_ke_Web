@@ -1,0 +1,249 @@
+<div class="layout-container">
+          
+          <div class="assignments-header">
+            <div class="tabs">
+              
+              <a
+                href="../../partial/assignment/assignment.html?role=student&amp;phase=closed"
+                class="tab assignments-detail-1"
+               
+                >Đã diễn ra</a
+              >
+              <a
+                href="../../partial/assignment/assignment.html?role=student&amp;phase=ongoing"
+                class="tab is-active assignments-detail-1"
+               
+                >Đang diễn ra </a
+              >
+              <a
+                href="../../partial/assignment/assignment.html?role=student&amp;phase=upcoming"
+                class="tab assignments-detail-1"
+               
+                >Sắp diễn ra</a
+              >
+            </div>
+          </div>
+
+          
+          <div class="table-toolbar">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                class="input filter-select assignments-detail-2"
+               
+                placeholder="Tìm kiếm theo tên, mã khóa học..."
+              />
+            </div>
+            <select class="filter-select">
+              <option>Trạng thái</option>
+            </select>
+            <select class="filter-select">
+              <option>Lớp 10A1</option>
+            </select>
+            <select class="filter-select">
+              <option>Thời gian</option>
+            </select>
+          </div>
+
+          
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon bg-blue-soft text-blue">
+                <svg viewBox="0 0 24 24" class="icon">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Đã hoàn thành</span>
+                <strong class="stat-value">18</strong>
+                <small>75% tổng số bài</small>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon bg-purple-soft text-purple">
+                <svg viewBox="0 0 24 24" class="icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Chưa làm</span>
+                <strong class="stat-value">4</strong>
+                <small>2 bài gần quá hạn</small>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon bg-red-soft text-red">
+                <svg viewBox="0 0 24 24" class="icon">
+                  <path
+                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+                  ></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Quá hạn</span>
+                <strong class="stat-value">2</strong>
+                <small>Cần hoàn thành bổ sung</small>
+              </div>
+            </div>
+          </div>
+
+          
+          <div id="student-assignment-table"></div>
+        </div>
+<template id="student-table-ongoing"><div
+            class="assignments-card table-wrap assignments-ongoing-detail-1"
+           
+          >
+            <div
+             
+             class="assignments-ongoing-detail-2">
+              <div>
+                <h3 class="assignments-ongoing-detail-3">Bài của tôi</h3>
+                <small
+                   class="assignments-ongoing-detail-4">Sắp xếp: Deadline gần nhất</small
+                >
+              </div>
+              <button class="action-btn">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="1"></circle>
+                  <circle cx="19" cy="12" r="1"></circle>
+                  <circle cx="5" cy="12" r="1"></circle>
+                </svg>
+              </button>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Bài</th>
+                  <th>Môn / Lớp</th>
+                  <th>Deadline</th>
+                  <th>Thời gian còn lại</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    
+                    <a
+                      href="../../student/assignment-detail/assignment-detail.html"
+                     
+                     class="assignments-ongoing-detail-5">
+                      <strong>Kiểm tra 45 phút - Hàm số</strong>
+                    </a>
+                  </td>
+                  <td>Toán - 10A1</td>
+                  <td>18:00 - 14/09</td>
+                  <td>02 giờ 18 phút</td>
+                  <td>
+                    <span class="status-badge status-draft">Chưa làm</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></template>
+<template id="student-table-closed"><div
+            class="assignments-card table-wrap assignments-closed-detail-1"
+           
+          >
+            <div
+             
+             class="assignments-closed-detail-2">
+              <div>
+                <h3 class="assignments-closed-detail-3">Bài đã kết thúc</h3>
+                <small
+                   class="assignments-closed-detail-4">Sắp xếp: Thời gian hoàn thành</small
+                >
+              </div>
+              <button class="action-btn">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="1"></circle>
+                  <circle cx="19" cy="12" r="1"></circle>
+                  <circle cx="5" cy="12" r="1"></circle>
+                </svg>
+              </button>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Bài</th>
+                  <th>Môn / Lớp</th>
+                  <th>Thời gian kết thúc</th>
+                  <th>Điểm số</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a
+                      href="../../student/result-detail/result-detail.html"
+                     
+                     class="assignments-closed-detail-5">
+                    <strong>Bài tập về nhà tuần 1</strong></a></td>
+                  <td>Toán - 10A1</td>
+                  <td>05/09/2026</td>
+                  <td><strong class="assignments-closed-detail-6">9.0 / 10</strong></td>
+                  <td><span class="status-badge status-open">Đã nộp</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div></template>
+<template id="student-table-upcoming"><div
+            class="assignments-card table-wrap assignments-upcoming-detail-1"
+           
+          >
+            <div
+             
+             class="assignments-upcoming-detail-2">
+              <div>
+                <h3 class="assignments-upcoming-detail-3">Bài tập sắp tới</h3>
+                <small
+                   class="assignments-upcoming-detail-4">Sắp xếp: Thời gian mở gần nhất</small
+                >
+              </div>
+              <button class="action-btn">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="1"></circle>
+                  <circle cx="19" cy="12" r="1"></circle>
+                  <circle cx="5" cy="12" r="1"></circle>
+                </svg>
+              </button>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Bài</th>
+                  <th>Môn / Lớp</th>
+                  <th>Thời gian mở</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Ôn tập giữa kì I</strong></td>
+                  <td>Toán - 10A1</td>
+                  <td>08:00 - 20/09/2026</td>
+                  <td>
+                    <span class="status-badge status-upcoming">Sắp mở</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Kiểm tra 45 phút Sinh học</strong></td>
+                  <td>Sinh - 10A1</td>
+                  <td>14:00 - 25/09/2026</td>
+                  <td>
+                    <span class="status-badge status-upcoming">Sắp mở</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></template>

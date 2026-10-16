@@ -1,0 +1,31 @@
+.policy-page { background-color: #f4f6f8; }
+
+
+.policy-page .card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px; /*bo tròn các góc*/
+  border: none; /*bỏ viền mặc định của bootstrap*/
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.policy-page .card-body h1,
+.policy-page .card-body h2,
+.policy-page .card-body h3 {
+  padding-left: 2rem; /* Đẩy lề trái vào 16px */
+}
+
+
+.policy-page .card-body h3 {
+  font-size: 1.05rem; /* Kích thước chữ cho h3 */
+  font-weight: 600;
+}
+@media (max-width: 560px) {
+  .policy-page.p-4 { padding: 16px !important; }
+  .policy-page .card.p-4 { padding: 16px !important; }
+  .policy-page .card-body { padding: 0; }
+  .policy-page .card-body h1,
+  .policy-page .card-body h2,
+  .policy-page .card-body h3 { padding-left: 0; }
+}

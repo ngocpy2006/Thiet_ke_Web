@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learnova - Lớp học</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;subset=vietnamese&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../partial/sidebar/sidebar.css">
+  <link rel="stylesheet" href="../../partial/topbar/topbar.css">
+  <link rel="stylesheet" href="../../partial/footer/footer.css">
+  <link rel="stylesheet" href="../../partial/assignment/assignment.css">
+  <link rel="stylesheet" href="../student.css">
+  <link rel="stylesheet" href="classes.css">
+</head>
+<body data-role="student">
+  <div id="sidebar-slot"></div>
+  <div class="main">
+    <div id="topbar-slot"></div>
+    <main class="content student-page student-classes">
+      <div class="layout-container">
+          
+          <div class="overview-toolbar">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                placeholder="Tìm kiếm theo tên môn, tên giáo viên..."
+              />
+            </div>
+            <select class="filter-select">
+              <option>Tất cả học kỳ</option>
+              <option>Học kỳ 1</option>
+            </select>
+            <select class="filter-select">
+              <option>Trạng thái lớp</option>
+            </select>
+          </div>
+
+          
+          <div class="stats-grid-4">
+            <div class="stat-card">
+              <div class="stat-icon bg-blue-soft">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path
+                    d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Lớp đang học</span>
+                <strong class="stat-value">6</strong>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon bg-purple-soft">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Bài tập đến hạn</span>
+                <strong class="stat-value">3</strong>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon bg-green-soft">
+                <svg viewBox="0 0 24 24">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Đã hoàn thành</span>
+                <strong class="stat-value">18</strong>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon bg-orange-soft">
+                <svg viewBox="0 0 24 24">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Giáo viên phụ trách</span>
+                <strong class="stat-value">5</strong>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="class-list-card table-wrap">
+            <div class="card-header">
+              <div>
+                <h3>Các lớp của tôi</h3>
+                <small>Năm học 2026-2027</small>
+              </div>
+              <button
+               
+               class="classes-detail-1">
+                <svg
+                 
+                  viewBox="0 0 24 24"
+                 class="classes-detail-2">
+                  <circle cx="5" cy="12" r="1"></circle>
+                  <circle cx="12" cy="12" r="1"></circle>
+                  <circle cx="19" cy="12" r="1"></circle>
+                </svg>
+              </button>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Tên môn / Lớp</th>
+                  <th>Mã lớp</th>
+                  <th>Giáo viên</th>
+                  <th>Sĩ số</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Toán học - 10A1</strong></td>
+                  <td>TOAN-10A1</td>
+                  <td>
+                    <div class="teacher-info">
+                      <div class="teacher-avatar">TL</div>
+                      <span>Cô Thu Lan</span>
+                    </div>
+                  </td>
+                  <td>41</td>
+                  <td>
+                    <span class="status-badge status-open">Đang học</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Vật Lý - 10A1</strong></td>
+                  <td>LY-10A1</td>
+                  <td>
+                    <div class="teacher-info">
+                      <div class="teacher-avatar">VB</div>
+                      <span>Thầy Văn Bình</span>
+                    </div>
+                  </td>
+                  <td>41</td>
+                  <td>
+                    <span class="status-badge status-open">Đang học</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Hóa học - 10A1</strong></td>
+                  <td>HOA-10A1</td>
+                  <td>
+                    <div class="teacher-info">
+                      <div class="teacher-avatar">LC</div>
+                      <span>Cô Lê Cúc</span>
+                    </div>
+                  </td>
+                  <td>41</td>
+                  <td>
+                    <span class="status-badge status-open">Đang học</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Tiếng Anh - 10A1</strong></td>
+                  <td>ANH-10A1</td>
+                  <td>
+                    <div class="teacher-info">
+                      <div class="teacher-avatar">MH</div>
+                      <span>Thầy Minh Hoàng</span>
+                    </div>
+                  </td>
+                  <td>41</td>
+                  <td>
+                    <span class="status-badge status-open">Đang học</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </main>
+    <div id="footer-slot"></div>
+  </div>
+  <script src="classes.js"></script>
+  <script src="../../assets/data-loader.js"></script>
+  <script src="../../main.js"></script>
+</body>
+</html>

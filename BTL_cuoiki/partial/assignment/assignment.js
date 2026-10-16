@@ -1,6 +1,7 @@
 /* Danh sách bài: HTML/CSS trong partial/assignment, dữ liệu từ assets/data.csv. */
 window.pageReady = Promise.all([window.dataReady, window.layoutReady]).then(function () {
   "use strict";
+  if (window.APP.role === "student") return window.renderStudentAssignments();
   const $ = id => document.getElementById(id);
   const PAGE_SIZE = 8;
   const phaseClass = { draft: "status-draft", upcoming: "status-upcoming", ongoing: "status-open", closed: "status-closed" };

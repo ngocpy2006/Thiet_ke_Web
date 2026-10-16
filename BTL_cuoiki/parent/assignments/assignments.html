@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Learnova - Danh sách bài của con</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;subset=vietnamese&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../partial/sidebar/sidebar.css">
+<link rel="stylesheet" href="../../partial/topbar/topbar.css">
+<link rel="stylesheet" href="../../partial/footer/footer.css">
+<link rel="stylesheet" href="assignments.css">
+</head>
+<body class="parent-page">
+<div id="sidebar-slot">
+</div>
+<div class="main">
+<div id="topbar-slot">
+</div>
+<main class="content">
+<div class="page-shell dash">
+<section class="parent-context" aria-label="Học sinh đang theo dõi">
+  <div>
+<strong id="parent-name">Theo dõi học tập của con</strong>
+<p id="child-info">
+</p>
+</div>
+  <div class="filters parent-child-filter">
+<label for="child">Học sinh</label>
+<select id="child" aria-label="Chọn con">
+</select>
+</div>
+</section>
+<section class="card" aria-labelledby="list-title">
+<header class="card-head">
+<h2 id="list-title">Danh sách bài của con</h2>
+</header>
+<div class="toolbar parent-toolbar">
+<label class="search">
+<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+<circle cx="11" cy="11" r="8"/>
+<path d="m21 21-4.3-4.3"/>
+</svg>
+<input id="query" type="search" placeholder="Tìm tên bài…" aria-label="Tìm tên bài">
+</label>
+<div class="filters">
+<select id="type" aria-label="Loại bài">
+<option value="">Tất cả loại bài</option>
+<option value="kiem_tra">Bài kiểm tra</option>
+<option value="bai_tap">Bài tập</option>
+</select>
+<select id="status" aria-label="Trạng thái">
+<option value="">Tất cả trạng thái</option>
+<option value="graded">Đã chấm</option>
+<option value="submitted">Chờ chấm</option>
+<option value="ongoing">Đang mở</option>
+<option value="upcoming">Sắp diễn ra</option>
+<option value="closed">Chưa nộp · hết hạn</option>
+</select>
+</div>
+</div>
+<div class="table-wrap">
+<table class="table parent-table">
+<thead>
+<tr>
+<th>Tên bài</th>
+<th>Môn / lớp</th>
+<th>Hạn nộp</th>
+<th>Trạng thái</th>
+<th>Điểm / 10</th>
+<th>Kết quả</th>
+</tr>
+</thead>
+<tbody id="rows">
+</tbody>
+</table>
+</div>
+<p id="summary" class="parent-summary" aria-live="polite">
+</p>
+<div class="foot parent-pagination">
+<button id="prev" class="btn btn-secondary">Trang trước</button>
+<span id="page">
+</span>
+<button id="next" class="btn btn-secondary">Trang sau</button>
+</div>
+</section>
+</div>
+</main>
+<div id="footer-slot">
+</div>
+</div>
+<script>window.PAGE={role:'parent',parentId:'PH001',title:'Danh sách bài của con',breadcrumb:['Phụ huynh','Danh sách bài của con']};</script>
+<script src="../../assets/data-loader.js">
+</script>
+<script src="../../teacher/connect.js">
+</script>
+<script src="../parent.js">
+</script>
+<script src="assignments.js">
+</script>
+</body>
+</html>

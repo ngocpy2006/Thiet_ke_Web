@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Learnova - Báo cáo học tập</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;subset=vietnamese&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../partial/sidebar/sidebar.css">
+<link rel="stylesheet" href="../../partial/topbar/topbar.css">
+<link rel="stylesheet" href="../../partial/footer/footer.css">
+<link rel="stylesheet" href="report.css">
+</head>
+<body class="parent-page">
+<div id="sidebar-slot">
+</div>
+<div class="main">
+<div id="topbar-slot">
+</div>
+<main class="content">
+<div class="page-shell dash">
+<section class="parent-context" aria-label="Học sinh đang theo dõi">
+  <div>
+<strong id="parent-name">Theo dõi học tập của con</strong>
+<p id="child-info">
+</p>
+</div>
+  <div class="filters parent-child-filter">
+<label for="child">Học sinh</label>
+<select id="child" aria-label="Chọn con">
+</select>
+</div>
+</section>
+<section class="card">
+<div class="toolbar parent-toolbar filters">
+<label>Từ ngày <input id="from" type="date">
+</label>
+<label>Đến ngày <input id="to" type="date">
+</label>
+</div>
+<p class="muted">Lọc theo ngày nộp bài. Để trống để xem toàn bộ lịch sử.</p>
+<p id="range-error" role="alert">
+</p>
+</section>
+<section id="stats" class="stats" aria-label="Thống kê học tập">
+</section>
+<div class="parent-grid">
+<section class="card">
+<header class="card-head">
+<h2>Kết quả theo thời gian</h2>
+</header>
+<div id="timeline">
+</div>
+</section>
+<section class="card">
+<header class="card-head">
+<h2>Phân tích theo chủ đề</h2>
+</header>
+<div id="topics">
+</div>
+</section>
+</div>
+<section class="card">
+<header class="card-head">
+<h2>Gợi ý đồng hành cùng con</h2>
+</header>
+<div id="advice">
+</div>
+</section>
+</div>
+</main>
+<div id="footer-slot">
+</div>
+</div>
+<script>window.PAGE={role:'parent',parentId:'PH001',title:'Báo cáo học tập',breadcrumb:['Phụ huynh','Báo cáo học tập']};</script>
+<script src="../../assets/data-loader.js">
+</script>
+<script src="../../teacher/connect.js">
+</script>
+<script src="../parent.js">
+</script>
+<script src="report.js">
+</script>
+</body>
+</html>

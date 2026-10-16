@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topbar</title>
+    <link rel="stylesheet" href="./topbar.css" />
+  </head>
+  <body></body>
+</html>
+<header class="topbar">
+  <div class="topbar-title">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol id="breadcrumb">
+        <!-- Mục "Trang chủ" cố định, các mục còn lại do layout.js thêm vào -->
+        <li>
+          <a href="index_01.html">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+              <path
+                d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+              />
+            </svg>
+            Trang chủ
+          </a>
+        </li>
+      </ol>
+    </nav>
+    <h1 id="pageTitle"></h1>
+  </div>
+
+  <div class="topbar-actions">
+    <button
+      type="button"
+      class="bell"
+      aria-label="Thông báo (có thông báo mới)"
+    >
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+        <path
+          d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"
+        />
+      </svg>
+      <i class="bell-dot" aria-hidden="true"></i>
+    </button>
+
+    <span class="topbar-divider" aria-hidden="true"></span>
+
+    <button
+      type="button"
+      class="account"
+      aria-haspopup="menu"
+      aria-expanded="false"
+    >
+      <span class="account-avatar" aria-hidden="true">N</span>
+      <span class="account-info">
+        <strong>Nguyễn Thu Lan</strong>
+        <small>Giáo viên</small>
+      </span>
+      <svg class="icon chevron" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </button>
+  </div>
+</header>

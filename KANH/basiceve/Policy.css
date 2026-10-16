@@ -1,0 +1,22 @@
+body {
+  background-color: #f4f6f8;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px; /*bo tròn các góc*/
+  border: none; /*bỏ viền mặc định của bootstrap*/
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-body h1,
+.card-body h2,
+.card-body h3 {
+  padding-left: 2rem; /* Đẩy lề trái vào 16px */
+}
+
+.card-body h3 {
+  font-size: 1.05rem; /* Kích thước chữ cho h3 */
+  font-weight: 600;
+}

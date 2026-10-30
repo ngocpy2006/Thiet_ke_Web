@@ -2,7 +2,12 @@ window.parentReady = Promise.all([window.dataReady, window.layoutReady]).then(()
  'use strict';
  const $ = id => document.getElementById(id);
  const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const parent = DB.parents.find(p => p.id === PAGE.parentId);
+ let signedInParent = null;
+ try {
+   const session = JSON.parse(sessionStorage.getItem('learnova.auth.session.v1') || 'null');
+   if (session?.role === 'parent') signedInParent = session.id;
+ } catch (_) {}
+ const parent = DB.parents.find(p => p.id === (signedInParent || PAGE.parentId));
  if (!parent) throw new Error('Không tìm thấy phụ huynh demo.');
  const children = DB.students.filter(s => parent.childIds.includes(s.id) && s.parentId === parent.id);
  const params = new URLSearchParams(location.search);

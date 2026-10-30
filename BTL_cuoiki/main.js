@@ -26,7 +26,14 @@
   const sharedPage = /\/partial\/(account|policy)\//.test(location.pathname);
   const role = page.role === 'student' || location.pathname.includes('/student/')
     || (sharedPage && params.get('role') === 'student') ? 'student' : 'teacher';
-  const userId = page.userId || (sharedPage ? params.get('userId') : null);
+  let authSession = null;
+  try { authSession = JSON.parse(sessionStorage.getItem('learnova.auth.session.v1') || 'null'); } catch (_) {}
+  const userId = page.userId || params.get('userId') || (authSession?.role === role ? authSession.id : null);
+  document.addEventListener('account:logout', event => {
+    event.preventDefault();
+    try { sessionStorage.removeItem('learnova.auth.session.v1'); } catch (_) {}
+    location.assign(new URL('index.html', layoutBase).href);
+  });
   window.APP = { base: layoutBase, role: role, userId: userId, user: null };
   window.APP.url = function (path) {
     const url = new URL(path, layoutBase);
